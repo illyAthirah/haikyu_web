@@ -1,0 +1,143 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Booking Form</title>
+
+        <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+            <!-- <link rel="stylesheet" href="http://jrain.oscitas.netdna-cdn.com/tutorial/css/fontawesome-all.min.css"> -->
+            <!-- <link rel="stylesheet" href="https://e6t7a8v2.stackpathcdn.com/tutorial/css/fontawesome-all.min.css"> -->
+            <link rel="stylesheet" href="../../css/fontawesome-all.min.css">
+            <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+                <!-- <link rel="stylesheet" href="http://jrain.oscitas.netdna-cdn.com/tutorial/css/bootstrap.min.css"> -->
+                <!-- <link rel="stylesheet" href="https://e6t7a8v2.stackpathcdn.com/tutorial/css/bootstrap.min.css"> -->
+
+
+        <link rel="stylesheet" href="../css/common.css"/>
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+            <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="../css/styleform.css"/>
+<style>
+    /*showhide function*/
+    #paydebit {
+          display:none;
+    }
+
+    #debit:checked ~ #paydebit {
+        display: block;
+    }
+
+    #paybank {
+        display: none;
+    }
+
+    #bank:checked ~ #paybank {
+        display: block;
+    }
+    
+</style>
+</head>
+
+    <body>
+  
+        <div class="form-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-6">
+                        <div class="form-container">
+                            <h3 class="title">Book to Repair Yours Now!</h3>
+                            <form action="/payment" method="POST" class="form-horizontal">
+
+                                <hr>
+                                <h2 class="sub-title">Payment Method</h2>
+    
+                                <h4>Select your payment option:<br></h4>
+                                <input type="radio" name="paymentOption" id="bank" value="bank" checked>
+                                <div class="form-group"><label>Online Banking</label></div><br>
+                                <input type="radio" name="paymentOption" id="debit" value="debit">
+                                <div class="form-group"><label>Credit / Debit Card</label></div><br>
+                                <input type="radio" name="paymentOption" id="cod" value="cod"> 
+                                <div class="form-group"><label>Cash On Delivery</label></div><br>
+                                <br><br>
+
+                                <!--option for online and card payment-->
+                                <div id="paybank">
+                                    <div class="form-group" class="textblue">
+                                    </div>
+                                    <p>Select your bank</p>
+                                    <p>
+                                    <h4> Online Banking Payment</h4><br>
+                                      <select class="form-control" name="bankname">
+                                            <option value="0" selected>Select your bank</option>
+                                            <option value="1">Maybank</option>
+                                            <option value="2">CIMB Bank</option>
+                                            <option value="3">Public Bank Berhad</option>
+                                            <option value="4">RHB Bank</option>
+                                            <option value="5">Hong Leong Bank</option>
+                                            <option value="6">AmBank</option>
+                                            <option value="7">UOB Malaysia Bank</option>
+                                            <option value="8">Bank Rakyat</option>
+                                            <option value="9">OCBC Bank Malaysia</option>
+                                            <option value="10">HSBC Bank Malaysia</option>
+                                            <option value="11">Affin Bank</option>
+                                            <option value="12">Bank Islam Malaysia</option>
+                                            <option value="13">Standard Chartered Bank Malaysia</option>
+                                            <option value="14">CitiBank Malaysia</option>
+                                      </select>
+                                    </p>	
+                                </div>
+
+                                <div id="paydebit">
+                                 <div  class="form-group">
+                                
+                                    <h3> Credit / Debit Card </h3><br> 
+                                    <h4> Accepted Card Type:</h4><br>
+                                </div><br>
+                                      <i class="fa fa-cc-visa" style="font-size:30px;"></i>
+                                      <i class="fa fa-cc-mastercard" style="font-size:30px;"></i>
+                                      <br>
+                                    </p>
+                                    <p>
+                                        <label> Enter your card information</label>
+                                    </p>
+                                   
+                                        <p>
+                                            <div class="form-group"><label or="cardname">Name on card:</label></div><br>
+                                            <input class="form-control" type="text" name="namecard" size="50" maxlength="50">
+                                        </p>
+                                        <p>
+                                            <div class="form-group"><label or="cardname">Card Number: </label></div><br>
+                                            <input class="form-control" type="text" name="cardnumber" size="50" maxlength="50">
+                                        </p>
+                                        <p>
+                                            <div class="form-group"><label or="cardname">Expiry Date:</label></div>
+                                             <input class="form-control" type="date" value=" " name="cardexpdate" size="20" maxlength="50"><br>
+
+                                            <div class="form-group"><label or="cardname">CVV: </label></div>
+                                             <input class="form-control" type="text" name="cvv" size="5" maxlength="5">
+                                        </p>
+                                    </div>
+                                    <hr>
+                                    <!--column cart info-->
+                                    <div class="column" style="margin-left: 170px; box-sizing: border-box; ">
+                                            <button class="btn signup" type="submit">Book Now!</button>
+                        </form>
+                                    </div>
+                                    
+                                </div>
+                                
+                         
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

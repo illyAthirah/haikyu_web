@@ -1,0 +1,152 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Booking Form</title>
+
+        <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+            <!-- <link rel="stylesheet" href="http://jrain.oscitas.netdna-cdn.com/tutorial/css/fontawesome-all.min.css"> -->
+            <!-- <link rel="stylesheet" href="https://e6t7a8v2.stackpathcdn.com/tutorial/css/fontawesome-all.min.css"> -->
+            <link rel="stylesheet" href="../../css/fontawesome-all.min.css">
+            <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+                <!-- <link rel="stylesheet" href="http://jrain.oscitas.netdna-cdn.com/tutorial/css/bootstrap.min.css"> -->
+                <!-- <link rel="stylesheet" href="https://e6t7a8v2.stackpathcdn.com/tutorial/css/bootstrap.min.css"> -->
+
+
+        <link rel="stylesheet" href="../css/common.css"/>
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+            <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="../css/styleform.css"/>
+<style>
+    /*showhide function*/
+    #laptopproblem {
+          display:none;
+    }
+
+    #laptop:checked ~ #laptopproblem {
+        display: block;
+    }
+
+    #tvproblem {
+        display: none;
+    }
+
+    #tv:checked ~ #tvproblem {
+        display: block;
+    }
+
+    #phoneproblem {
+        display: none;
+    }
+
+    #phone:checked ~ #phoneproblem {
+        display: block;
+    }
+    
+</style>
+</head>
+
+    <body>
+  
+        <div class="form-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-6">
+                        <div class="form-container">
+                            <h3 class="title">Book to Repair Yours Now!</h3>
+                            <form action="/device" method="POST" class="form-horizontal">
+
+                            <div class="form-group">
+                                <label for="booking">Request Date: </label><br>
+                                <input class="form-control" type="date" name="date" required>
+                            </div>
+
+                            <hr>
+                            <h2 class="sub-title">Devices Information</h2>
+                            
+                            <div class="form-group">
+                                <h4>Serial Number:</h4>
+                                <input type="text" name="serialnumber" class="form-control" placeholder="Devices Serial Number">
+                            </div><br>
+
+                            <h4>Type of devices : </h4>
+                            <input type="radio" name="device_type" id="laptop" value="laptop" checked>
+                            <div class="form-group"><label>Laptop</label></div><br>
+                            <input type="radio" name="device_type" id="tv" value="tv">
+                            <div class="form-group"><label>TV</label></div><br>
+                            <input type="radio" name="device_type" id="phone" value="phone"> 
+                            <div class="form-group"><label>Smartphone</label></div><br>
+                            <br><br>
+
+                                <div id="laptopproblem">
+                                    <p>
+                                        <h4>Select Your Devices Problem : </h4>
+                                      <select class="form-control" name="problem">
+                                            <option value="L0" selected>Select your laptop problem</option>
+                                            <option value="L1">Format (RM70)</option>
+                                            <option value="L2">LCD replacement (RM 150)</option>
+                                            <option value="L3">Baterry replacement (RM 180)</option>
+                                            <option value="L4">Upgrade RAM (RM 300)</option>
+                                            <option value="L5">Upgrade SSD (RM 350)</option>
+                                            <option value="L6">Motherboard (RM 400)</option>
+                                            <option value="L7">Fan problem (RM 200)</option>
+                                            <option value="L8">Virus Removal (RM 200)</option>
+                                            <option value="L9">Operating System (RM 150)</option>
+                                      </select>
+                                    </p>	
+                                </div>
+
+                                <div id="tvproblem">
+                                    <p>
+                                        <h4>Select Your TV Problem : </h4>
+                                      <select class="form-control" name="problem">
+                                            <option value="T0" selected>Select your TV problem</option>
+                                            <option value="T1">Flat/Crack screen plasma (RM 600)</option>
+                                            <option value="T2">Software issues (RM 200)</option>
+                                            <option value="T3">Lines On The TV screen (RM 450)</option>
+                                            <option value="T4">Black/Blank screen (RM 500)</option>
+                                      </select>
+                                    </p>	
+                                </div>
+
+                                <div id="phoneproblem">
+                                    <p>
+                                        <h4>Select Your Smartphone Problem : </h4>
+                                      <select class="form-control" name="problem">
+                                            <option value="S0" selected>Select your smartphone problem</option>
+                                            <option value="S1">Motherboard (RM250)</option>
+                                            <option value="S2">LCD replacement (RM150)</option>
+                                            <option value="S3">Baterry replacement (RM200)</option>
+                                            <option value="S4">Format (RM50)</option>
+                                      </select>
+                                    </p>	
+                                </div>
+
+                             
+                                    <hr>
+                                    <!--column cart info-->
+                                    <input type="submit" value="Next" class="btn signup" text-align="center">
+                                   <!-- <div class="column" style="margin-left: 170px; box-sizing: border-box; ">
+                                        <a href="formservices.html">
+                                            <button class="btn signup" type="submit" href="formservices.html">Next</button>
+                                        </a>
+                                        
+                                    </div>-->
+                                    
+                                </div>
+                            </form>  
+                         
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

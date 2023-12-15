@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>E-Haikyu LOGIN</title>
+	<link rel="stylesheet"  href="../css/SIGNUP.css">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+		
+		<div class="container mt-5 mb-5">
+           
+		</div>
+			<div class="signup">
+				<form action="/createaccount" method="POST" > 
+					<label for="chk" aria-hidden="true"> Sign up to <br>E-HAIKYU</label>
+					<% if(err.length) { %>
+						<%  for(i=0 ;i<err.length;i++){%>
+						<h3 style="color: #ff304f; text-align: center;"><%=err[i]%></h3><br>
+						<%   }%>
+						<%   } %>
+					<input type="text" name="email" placeholder="Email" required>
+					<input type="text" name="firstname" placeholder="First name" required>
+					<input type="text" name="lastname" placeholder="Last name" required>
+					<input type="text" name="username" placeholder="Username" required>
+                    <input type="text" name="phone" placeholder="Phone" required>
+					<input type="text" name="address" placeholder="Address" required>
+					<input type="password" name="password" placeholder="Password" required>
+					<input type="password" name="con_pass" placeholder="Confirm Password" required>
+
+					<input type="submit" value="Sign Up" class="button">
+				</form>
+			
+		
+			</div>
+
+			
+			<!--<div class="container mt-5 mb-5">
+						<% if(msg.length) { %>
+							<%  for(i=0 ;i<msg.length;i++){%>
+							<h3 style="color: #17b978;" class="text-center"><%=msg[i]%></h3><br>
+							<%   }%>
+							<%   }%>
+							<% if(err.length) { %>
+								<%  for(i=0 ;i<err.length;i++){%>
+								<h3 style="color: #ff304f;" class="text-center"><%=err[i]%></h3><br>
+								<%   } %>
+								<%   } %>
+					<div class="login">
+						<form  action="/login" method="POST">
+							<label for="chk" aria-hidden="true">Login</label>
+							<input type="email" name="email" placeholder="Email" required="">
+							<input type="password" name="password" placeholder="Password" required="">
+							<input type="submit" value="Login" class="loginlabel, button">
+						</form>
+					</div>
+			</div>-->
+	</div>
+</body>
+</html>

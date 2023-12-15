@@ -1,0 +1,144 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Booking Form</title>
+
+        <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+            <!-- <link rel="stylesheet" href="http://jrain.oscitas.netdna-cdn.com/tutorial/css/fontawesome-all.min.css"> -->
+            <!-- <link rel="stylesheet" href="https://e6t7a8v2.stackpathcdn.com/tutorial/css/fontawesome-all.min.css"> -->
+            <link rel="stylesheet" href="../../css/fontawesome-all.min.css">
+            <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+                <!-- <link rel="stylesheet" href="http://jrain.oscitas.netdna-cdn.com/tutorial/css/bootstrap.min.css"> -->
+                <!-- <link rel="stylesheet" href="https://e6t7a8v2.stackpathcdn.com/tutorial/css/bootstrap.min.css"> -->
+
+
+        <link rel="stylesheet" href="../css/common.css"/>
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+            <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="../css/styleform.css"/>
+<style>
+    /*showhide function*/
+    #pickupmethod {
+          display:none;
+    }
+
+    #pickup:checked ~ #pickupmethod {
+        display: block;
+    }
+
+    #postmethod {
+          display:none;
+    }
+
+    #post:checked ~ #postmethod {
+        display: block;
+    }
+    
+</style>
+</head>
+
+    <body>
+  
+        <div class="form-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-6">
+                        <div class="form-container">
+                            <h3 class="title">Book to Repair Yours Now!</h3>
+                            <form action="/service" method="POST" class="form-horizontal">
+
+                            <hr>
+                            <h2 class="sub-title">Pickup/Post Method</h2>
+                         
+                            <h4>Select post/pickup option:<br></h4>
+                                <input type="radio" name="method" id="post" value="post" checked>
+                                <div class="form-group"><label>Post</label></div><br>
+                                <input type="radio" name="method" id="pickup" value="pickup">
+                                <div class="form-group"><label>Pickup at Home</label></div><br>
+                                <br><br>
+                              
+
+                                <div id="pickupmethod">
+                                <hr>
+                                <h2 class="sub-title">Your Address Details</h2>
+                                <div class="form-group">
+                                    <label>Address: </label>
+                                    <input type="text" name="address" value=" " id="address" class="form-control" placeholder="Address">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>State: </label><br>
+                                    <select class="form-control" name="state" id="state">
+                                        <option value=" ">Select</option>
+                                        <option value="kl">Kuala Lumpur</option>
+                                        <option value="selangor">Selangor</option>
+                                        <option value="melaka">Melaka</option>
+                                        <option value="perak">Perak</option>
+                                        <option value="pulaupinang">Pulai Pinang</option>
+                                        <option value="perlis">Perlis</option>
+                                        <option value="kelantan">Kelantan</option>
+                                        <option value="terengganu">Terengganu</option>
+                                        <option value="kedah">Kedah</option>
+                                        <option value="pahang">Pahang</option>
+                                        <option value="negerisembilan">Negeri Sembilan</option>
+                                        <option value="johor">Johor</option>
+                                        <option value="sabah">Sabah</option>
+                                        <option value="sarawak">Sarawak</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Postcode: </label><br>
+                                    <input type="text" name="postcode" value=" " id="postcode" class="form-control" placeholder="Postcode">
+                                </div><br>
+                            </div>
+
+                            <div id="postmethod">
+                                <hr>
+                                <h2 class="sub-title">Postage Details</h2>
+                            
+                                    <center><h6>For postage references: </h6>
+                                    <h6>p/s; Lot 275 Jalan Pinang Muda, Parit Raja, Batu Pahat, Johor.</h6></center><br>
+                            
+                                
+                                <div class="form-group">
+                                    <label>Tracking Number: </label><br>
+                                    <input type="text" name="tracking" id="tracking" class="form-control" placeholder="Tracking Number">
+                                </div><br>
+
+                                <div class="form-group">
+                                    <label>Courier Type: </label><br>
+                                    <select class="form-control" name="courier">
+                                        <option value="0" selected>Select</option>
+                                        <option value="1">J&t</option>
+                                        <option value="2">CityLink Express</option>
+                                        <option value="3">Ninja Van</option>
+                                        <option value="4">ABX Express</option>
+                                        <option value="5">PostLaju</option>
+                                  </select>
+                                </div><br>
+                            </div>
+                                    <!--column cart info-->
+                                    <div class="column" style="margin-left: 170px; box-sizing: border-box; ">
+                                            <button class="btn signup" >NEXT</button>
+                                        </form>
+                                    </div>
+                                    
+                                </div>
+                                
+                         
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
