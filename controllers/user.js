@@ -156,22 +156,30 @@ exports.postDevice = (req, res, next) => {
 
    var date = req.body.date;
    //console.log(date)
-   var data = "INSERT INTO device " +
-      " VALUES ( '" + date + "','" + req.body.serialnumber + "','" + req.body.device_type + "','" + req.body.problem + "')";
+   data = "INSERT INTO device " +
+      " VALUES ( '" + req.session.email + "','" + date + "','" + req.body.serialnumber + "','" + req.body.device_type + "','" + req.body.problem + "')";
    
+      data1 = "SELECT * " +
+      " FROM  user " +
+      " WHERE email = " + mysql.escape(req.session.email);
       
    
       connectDB.query(data, (err, result) => {
-         if (err) {
-            console.error('Error inserting data into the database:', err);
-            return res.render("user/formdevices", { user: "", msg: [], err: ["Error inserting data into the database"] });
-         } else {
-            res.render('user/formservices', { user: "", msg: ["Device data enter succesfully"], err: [] });
+         if (err) throw err;
+         else {
+            /*connectDB.query(data1, (err1, result) => {
+               for (i in result) {
+                  var a = result[i].date
+                  a = a.toString()
+                  result[i].date = a.slice(0, 15);
+               }*/
+               res.render('user/formservices', { user: "", err: "", data: result });
+            //})
          }
-      });
-    
+        })
+   }
    
-} 
+
 
 //get request for service
 exports.getService = (req, res, next) => {
@@ -197,19 +205,36 @@ exports.postService = (req, res, next) => {
    });
 
   
-   var data = "INSERT INTO service " +
-      " VALUES ( '" + req.body.method + "','" + req.body.address + "','" + req.body.state + "','" + req.body.postcode + "','" + req.body.tracking + "', '" + req.body.courier + "')";
+    data = "INSERT INTO service " +
+      " VALUES ( '" + req.session.serviceID + "','" + req.session.email + "','" + req.body.method + "','" + req.body.address + "','" + req.body.state + "','" + req.body.postcode + "','" + req.body.tracking + "', '" + req.body.courier + "')";
    
+      
+      /*data1 = "SELECT * " +
+      " FROM  user " +
+      " WHERE email = " + mysql.escape(req.session.email);*/
       
    
       connectDB.query(data, (err, result) => {
+         if (err) throw err;
+         else {
+            /*connectDB.query(data1, (err1, result) => {
+               for (i in result) {
+                  var a = result[i].date
+                  a = a.toString()
+                  result[i].date = a.slice(0, 15);
+               }*/
+               res.render('user/formpayment', { user: "", err: "", data: result });
+            //})
+         }
+        })
+      /*connectDB.query(data, (err, result) => {
          if (err) {
             console.error('Error inserting data into the database:', err);
             return res.render("user/formservices", { user: "", msg: [], err: ["Error inserting data into the database"] });
          } else {
             res.render('user/formpayment', { user: "", msg: ["Service data enter succesfully"], err: [] });
          }
-      });
+      });*/
     
    
 } 
@@ -240,7 +265,7 @@ exports.postPayment = (req, res, next) => {
    var date = req.body.cardexpdate;
    //console.log(date)
    var data = "INSERT INTO payment " +
-      " VALUES ( '" + req.body.paymentOption + "','" + req.body.bankname + "','" + req.body.namecard + "','" + req.body.cardnumber + "','" + date + "', '" + req.body.cvv + "')";
+      " VALUES ( '" + req.session.payID + "','" + req.session.email + "','" + req.body.paymentOption + "','" + req.body.bankname + "','" + req.body.namecard + "','" + req.body.cardnumber + "','" + date + "', '" + req.body.cvv + "')";
    
       
    

@@ -28,4 +28,10 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.use(userRouter);
 app.use("/admin" ,adminRouter);
 
+/*app.use((req, res, next) => {
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
+  next();
+});*/
+
 app.listen(3000, () => console.log("Server is Running..."));

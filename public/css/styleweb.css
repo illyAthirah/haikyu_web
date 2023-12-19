@@ -104,6 +104,7 @@
 /*** Navbar Start ***/
 .navbar .navbar-nav {
     padding: 15px 0;
+  
 }
 
 .navbar .navbar-nav .nav-link {
@@ -145,10 +146,12 @@
     visibility: visible;
     transition: .5s;
     opacity: 1;
+   
 }
 
 .container-fluid bg-primary {
 	background-color:#5b0303 !important;
+    
 }
 
 /*** Navbar End ***/

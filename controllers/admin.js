@@ -17,7 +17,7 @@ exports.getLogin = (req, res, next) => {
         });
         data1 = "SELECT * " +
             "FROM  bookingstatus " +
-            "WHERE status = 0 ";
+            "WHERE statusID = 0 ";
         connectDB.query(data1, (err1, result1) => {
             if (err1) throw err1;
             else {
@@ -49,7 +49,7 @@ exports.postLogin = (req, res, next) => {
 
     data1 = "SELECT * " +
         "FROM  bookingstatus " +
-        "WHERE status = 0 ";
+        "WHERE statusID = 0 ";
 
     connectDB.query(data, (err, result) => {
         if (err) throw err;
