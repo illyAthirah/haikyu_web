@@ -15,7 +15,7 @@
 }
 .form-container .title:after{
     content: '';
-    background-color: #b4c6f4;
+    background-color: #0936aa;
     height: 3px;
     width: 60px;
     margin: 10px 0 0;
@@ -90,8 +90,8 @@
     content: '';
     height: 5px;
     width: 9px;
-    border-bottom: 2px solid #00A9EF;
-    border-left: 2px solid #00A9EF;
+    border-bottom: 2px solid #040c5c;
+    border-left: 2px solid #040c5c;
     transform: rotate(-45deg);
     position: absolute;
     left: 2px;
@@ -110,14 +110,14 @@
     vertical-align: top;
 }
 .form-container .signin-link a{
-    color: #00A9EF;
+    color: #040c5c;
     font-weight: 600;
     transition: all 0.3s ease 0s;
 }
 .form-container .signin-link a:hover{ text-decoration: underline; }
 .form-container .form-horizontal .signup{
     color: #fff;
-    background: #00A9EF;
+    background: #040c5c;
     font-size: 15px;
     font-weight: 700;
     text-transform: uppercase;
