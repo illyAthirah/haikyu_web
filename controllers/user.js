@@ -99,7 +99,7 @@ exports.getCreateAccount = (req, res, next) => {
    res.render('user/createAccount', { user: "", msg: [], err: [] })
 }
 
-//get data from user for create account
+/*//get data from user for create account
 exports.postCreateAccount = (req, res, next) => {
 
    var connectDB = mysql.createConnection({
@@ -138,7 +138,7 @@ exports.postCreateAccount = (req, res, next) => {
       });
     
    
-} 
+} */
 
 
 //get request for devices
@@ -146,7 +146,7 @@ exports.getDevice = (req, res, next) => {
    res.render('user/formdevices', { user: req.session.email});
 }
 
-//get data from user for devices
+/*//get data from user for devices
 exports.postDevice = (req, res, next) => {
 
    var connectDB = mysql.createConnection({
@@ -185,9 +185,9 @@ exports.postDevice = (req, res, next) => {
                }*/
                res.render('user/formservices', { user: "", err: "", data: result });
             //})
-         }
+            /*}
         })
-   }
+   }*/
    
 
 
@@ -196,7 +196,7 @@ exports.getService = (req, res, next) => {
    res.render('user/formservices', { user: req.session.email});
 }
 
-//get data from user for service
+/*//get data from user for service
 exports.postService = (req, res, next) => {
 
    var connectDB = mysql.createConnection({
@@ -224,7 +224,7 @@ exports.postService = (req, res, next) => {
       " WHERE email = " + mysql.escape(req.session.email);*/
       
    
-      connectDB.query(data, (err, result) => {
+      /*connectDB.query(data, (err, result) => {
          if (err) throw err;
          else {
             /*connectDB.query(data1, (err1, result) => {
@@ -233,9 +233,9 @@ exports.postService = (req, res, next) => {
                   a = a.toString()
                   result[i].date = a.slice(0, 15);
                }*/
-               res.render('user/formpayment', { user: "", err: "", data: result });
-            //})
-         }
+               //res.render('user/formpayment', { user: "", err: "", data: result });
+            //})*/
+       /*  }
         })
       /*connectDB.query(data, (err, result) => {
          if (err) {
@@ -245,16 +245,16 @@ exports.postService = (req, res, next) => {
             res.render('user/formpayment', { user: "", msg: ["Service data enter succesfully"], err: [] });
          }
       });*/
-    
+ /*   
    
-} 
+} */
 
 //get request for payment
 exports.getPayment = (req, res, next) => {
    res.render('user/formpayment', { user: req.session.email});
 }
 
-//get data from user for payment
+/*//get data from user for payment
 exports.postPayment = (req, res, next) => {
 
    var connectDB = mysql.createConnection({
@@ -290,7 +290,7 @@ exports.postPayment = (req, res, next) => {
     
    
 } 
-
+*/
 
 
 
