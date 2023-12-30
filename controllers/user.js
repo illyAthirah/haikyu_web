@@ -183,7 +183,7 @@ exports.postDevice = (req, res, next) => {
                   a = a.toString()
                   result[i].date = a.slice(0, 15);
                }*/
-               res.render('user/formservices', { user: "", err: "", data: result });
+               //res.render('user/formservices', { user: "", err: "", data: result });
             //})
             /*}
         })
