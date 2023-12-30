@@ -45,6 +45,16 @@ exports.getAbout = (req, res, next) => {
       return res.render('user/about', { user: "" });
    }
 }
+//show FAQ
+exports.getFAQ = (req, res, next) => {
+
+   if (req.session.email != undefined) {
+      return res.render('user/faq', { user: req.session.email });
+   }
+   else {
+      return res.render('user/faq', { user: "" });
+   }
+}
 
 //show the login page
 exports.getLogin = (req, res, next) => {
