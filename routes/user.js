@@ -31,7 +31,7 @@ router.post('/deletereq',userControler.deleteBooking,userControler.getShowStatus
 router.get('/contact',userControler.getContact); 
 
 router.route('/device')
-       .get( userControler.authentication, userControler.getDevice) //get request for form
+       .get( /*userControler.authentication,*/ userControler.getDevice) //get request for form
        .post(userControler.postDevice); //post request form the form
 
 
