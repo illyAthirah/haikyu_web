@@ -42,7 +42,15 @@ router.route('/service')
 router.route('/payment')
         .get(userControler.getPayment )//get request for form
         // .post(userControler.postPayment); //post request form the service
+        
+router.route('/tv')
+        .get(userControler.getTv )//get request for tv
 
+router.route('/phone')
+        .get(userControler.getPhone )//get request for tv
+
+router.route('/laptop')
+        .get(userControler.getLaptop )//get request for tv
 
 router.get('/logout',userControler.logout); //logout       
 

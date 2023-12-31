@@ -35,6 +35,39 @@ exports.getServ = (req, res, next) => {
    }
 }
 
+// show the tv
+exports.getTv = (req, res, next) => {
+
+   if (req.session.email != undefined) {
+      return res.render('user/tv', { user: req.session.email });
+   }
+   else {
+      return res.render('user/tv', { user: "" });
+   }
+}
+
+// show the phone
+exports.getPhone = (req, res, next) => {
+
+   if (req.session.email != undefined) {
+      return res.render('user/phone', { user: req.session.email });
+   }
+   else {
+      return res.render('user/phone', { user: "" });
+   }
+}
+
+// show the laptop
+exports.getLaptop = (req, res, next) => {
+
+   if (req.session.email != undefined) {
+      return res.render('user/laptop', { user: req.session.email });
+   }
+   else {
+      return res.render('user/laptop', { user: "" });
+   }
+}
+
 // show the home page
 exports.getAbout = (req, res, next) => {
 
