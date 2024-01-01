@@ -106,7 +106,7 @@ exports.getLogin = (req, res, next) => {
    res.render('user/loginAccount', { user: "", msg: [], err: [] });
 }
 
-//post page of login
+/*//post page of login
 exports.postLogin = (req, res, next) => {
 
    var connectDB = mysql.createConnection({
@@ -136,7 +136,7 @@ exports.postLogin = (req, res, next) => {
       }
    })
 
-}
+}*/
 
 
 // show create account page
