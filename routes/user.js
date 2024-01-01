@@ -6,8 +6,8 @@ const router = express.Router();
 
 const userControler = require('../controllers/user');
 
-router.get('/',userControler.getHomebefore); //home page 
-router.get('/homeafter',userControler.getHomeafter); //home page 
+router.get('/',userControler.getHome); //home page 
+//router.get('/homeafter',userControler.getHomeafter); //home page 
 router.get('/serv',userControler.getServ); //serv page 
 router.get('/about',userControler.getAbout); //about page 
 router.get('/faq',userControler.getFAQ); //faq page 
