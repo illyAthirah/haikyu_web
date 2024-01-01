@@ -26,15 +26,15 @@ exports.getHome = (req, res, next) => {
 
 
 // show the home page
-//exports.getHomeafter = (req, res, next) => {
+exports.getHomeafter = (req, res, next) => {
 
-  // if (req.session.email != undefined) {
- //     return res.render('user/Homeafter', { user: req.session.email });
- //  }
- //  else {
-  //    return res.render('user/Homeafter', { user: "" });
- //  }
-//}
+  if (req.session.email != undefined) {
+    return res.render('user/Homeafter', { user: req.session.email });
+   }
+   else {
+    return res.render('user/Homeafter', { user: "" });
+  }
+}
 
 // show the home page
 exports.getServ = (req, res, next) => {
@@ -106,7 +106,7 @@ exports.getLogin = (req, res, next) => {
    res.render('user/loginAccount', { user: "", msg: [], err: [] });
 }
 
-/*//post page of login
+//post page of login
 exports.postLogin = (req, res, next) => {
 
    var connectDB = mysql.createConnection({
@@ -127,7 +127,7 @@ exports.postLogin = (req, res, next) => {
       else {
          if (result.length) {
             req.session.email = result[0].email;
-            res.render('user/home', {user: result[0].email});
+            res.render('user/Homeafter', {user: result[0].email});
          }
          else {
             res.render('user/loginAccount', { user: "", msg: [], err: ["Please Check Your information again"] });
@@ -136,7 +136,7 @@ exports.postLogin = (req, res, next) => {
       }
    })
 
-}*/
+}
 
 
 // show create account page
@@ -144,7 +144,7 @@ exports.getCreateAccount = (req, res, next) => {
    res.render('user/createAccount', { user: "", msg: [], err: [] })
 }
 
-/*//get data from user for create account
+//get data from user for create account
 exports.postCreateAccount = (req, res, next) => {
 
    var connectDB = mysql.createConnection({
@@ -183,7 +183,7 @@ exports.postCreateAccount = (req, res, next) => {
       });
     
    
-} */
+} 
 
 
 //get request for devices

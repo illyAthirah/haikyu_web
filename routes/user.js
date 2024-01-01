@@ -14,11 +14,11 @@ router.get('/faq',userControler.getFAQ); //faq page
 
 router.route('/login')
        .get(userControler.getLogin) // get request for login
-       //.post(userControler.postLogin)// post request for login
+       .post(userControler.postLogin)// post request for login
 
 router.route('/createaccount') 
        .get(userControler.getCreateAccount)    //get request for create account   
-       //.post(userControler.postCreateAccount); //post request for create account   
+       .post(userControler.postCreateAccount); //post request for create account   
  
        
 router.route('/status')
