@@ -13,7 +13,7 @@ exports.authentication = (req, res, next) => {
    }
 }
 
-/ show the home page
+// show the home page
 exports.getHome = (req, res, next) => {
 
    if (req.session.email != undefined) {
