@@ -13,14 +13,26 @@ exports.authentication = (req, res, next) => {
    }
 }
 
-// show the home page
-exports.getHome = (req, res, next) => {
+/ show the home page
+exports.getHomebefore = (req, res, next) => {
 
    if (req.session.email != undefined) {
-      return res.render('user/home', { user: req.session.email });
+      return res.render('user/Homebefore', { user: req.session.email });
    }
    else {
-      return res.render('user/home', { user: "" });
+      return res.render('user/Homebefore', { user: "" });
+   }
+}
+
+
+// show the home page
+exports.getHomeafter = (req, res, next) => {
+
+   if (req.session.email != undefined) {
+      return res.render('user/Homeafter', { user: req.session.email });
+   }
+   else {
+      return res.render('user/Homeafter', { user: "" });
    }
 }
 
