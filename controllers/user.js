@@ -80,26 +80,47 @@ exports.getLaptop = (req, res, next) => {
    }
 }
 
-// show the home page
+// show the aboutbefore page
 exports.getAbout = (req, res, next) => {
 
    if (req.session.email != undefined) {
-      return res.render('user/about', { user: req.session.email });
+      return res.render('user/Aboutbefore', { user: req.session.email });
    }
    else {
-      return res.render('user/about', { user: "" });
+      return res.render('user/Aboutbefore', { user: "" });
    }
 }
+//about after page
+exports.getAboutafter = (req, res, next) => {
+
+   if (req.session.email != undefined) {
+     return res.render('user/Aboutafter', { user: req.session.email });
+    }
+    else {
+     return res.render('user/Aboutafter', { user: "" });
+   }
+ }
+
 //show FAQ
 exports.getFAQ = (req, res, next) => {
 
    if (req.session.email != undefined) {
-      return res.render('user/faq', { user: req.session.email });
+      return res.render('user/faqbefore', { user: req.session.email });
    }
    else {
-      return res.render('user/faq', { user: "" });
+      return res.render('user/faqbefore', { user: "" });
    }
 }
+
+exports.getFAQafter= (req, res, next) => {
+
+   if (req.session.email != undefined) {
+     return res.render('user/faqafter', { user: req.session.email });
+    }
+    else {
+     return res.render('user/faqafter', { user: "" });
+   }
+ }
 
 //show the login page
 exports.getLogin = (req, res, next) => {
