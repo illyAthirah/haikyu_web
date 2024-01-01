@@ -8,6 +8,7 @@ const userControler = require('../controllers/user');
 
 router.get('/',userControler.getHome); //home page 
 router.get('/homeafter',userControler.getHomeafter); //home page 
+router.get('/Servicesbefore',userControler.getServicesbefore); //serv page
 router.get('/serv',userControler.getServ); //serv page 
 router.get('/Aboutbefore',userControler.getAbout); //aboutbefore page 
 router.get('/Aboutafter',userControler.getAboutafter); //aboutafter page 
@@ -34,16 +35,16 @@ router.route('/showStatus')
 router.get('/contact',userControler.getContact); 
 
 router.route('/device')
-       .get( /*userControler.authentication,*/ userControler.getDevice) //get request for form
+       .get( /*userControler.authentication,*/ userControler.getformdevices) //get request for form
        //.post(userControler.postDevice); //post request form the form
 
 
 router.route('/service')
-       .get(userControler.getService )//get request for form
+       .get(userControler.getformservices)//get request for form
         //.post(userControler.postService); //post request form the service
 
 router.route('/payment')
-        .get(userControler.getPayment )//get request for form
+        .get(userControler.getformpayment )//get request for form
         // .post(userControler.postPayment); //post request form the service
         
 router.route('/tv')

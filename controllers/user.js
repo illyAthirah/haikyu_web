@@ -36,7 +36,18 @@ exports.getHomeafter = (req, res, next) => {
   }
 }
 
-// show the home page
+
+// show the home service before
+exports.getServicesbefore = (req, res, next) => {
+
+   if (req.session.email != undefined) {
+      return res.render('user/Servicesbefore', { user: req.session.email });
+   }
+   else {
+      return res.render('user/Servicesbefore', { user: "" });
+   }
+}
+// show the home services
 exports.getServ = (req, res, next) => {
 
    if (req.session.email != undefined) {
@@ -47,6 +58,39 @@ exports.getServ = (req, res, next) => {
    }
 }
 
+
+// show the service method
+exports.getformservices = (req, res, next) => {
+
+   if (req.session.email != undefined) {
+      return res.render('user/formservices', { user: req.session.email });
+   }
+   else {
+      return res.render('user/formservices', { user: "" });
+   }
+}
+
+// show the form devices
+exports.getformdevices = (req, res, next) => {
+
+   if (req.session.email != undefined) {
+      return res.render('user/formdevices', { user: req.session.email });
+   }
+   else {
+      return res.render('user/formdevices', { user: "" });
+   }
+}
+
+// show the form devices
+exports.getformpayment = (req, res, next) => {
+
+   if (req.session.email != undefined) {
+      return res.render('user/formpayment', { user: req.session.email });
+   }
+   else {
+      return res.render('user/formpayment', { user: "" });
+   }
+}
 // show the tv
 exports.getTv = (req, res, next) => {
 
