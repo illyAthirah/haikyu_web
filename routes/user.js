@@ -9,8 +9,10 @@ const userControler = require('../controllers/user');
 router.get('/',userControler.getHome); //home page 
 //router.get('/homeafter',userControler.getHomeafter); //home page 
 router.get('/serv',userControler.getServ); //serv page 
-router.get('/about',userControler.getAbout); //about page 
-router.get('/faq',userControler.getFAQ); //faq page 
+router.get('/Aboutbefore',userControler.getAbout); //aboutbefore page 
+router.get('/Aboutafter',userControler.getAboutafter); //aboutafter page 
+router.get('/faqbefore',userControler.getFAQ); //faqbefore page
+router.get('/faqafter',userControler.getFAQafter); //faqafter page
 
 router.route('/login')
        .get(userControler.getLogin) // get request for login
