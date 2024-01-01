@@ -7,7 +7,7 @@ const router = express.Router();
 const userControler = require('../controllers/user');
 
 router.get('/',userControler.getHome); //home page 
-//router.get('/homeafter',userControler.getHomeafter); //home page 
+router.get('/homeafter',userControler.getHomeafter); //home page 
 router.get('/serv',userControler.getServ); //serv page 
 router.get('/Aboutbefore',userControler.getAbout); //aboutbefore page 
 router.get('/Aboutafter',userControler.getAboutafter); //aboutafter page 
