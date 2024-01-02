@@ -48,7 +48,7 @@ router.route('/payment')
         // .post(userControler.postPayment); //post request form the service
     
 router.route('/tvbefore')
-        .get(userControler.geTvbefore )//get request for tv
+        .get(userControler.getTvbefore )//get request for tv
 
 router.route('/tv')
         .get(userControler.getTv )//get request for tv
