@@ -91,6 +91,18 @@ exports.getformpayment = (req, res, next) => {
       return res.render('user/formpayment', { user: "" });
    }
 }
+
+// show the tv
+exports.getTvbefore = (req, res, next) => {
+
+   if (req.session.email != undefined) {
+      return res.render('user/tvbefore', { user: req.session.email });
+   }
+   else {
+      return res.render('user/tvbefore', { user: "" });
+   }
+}
+
 // show the tv
 exports.getTv = (req, res, next) => {
 
@@ -99,6 +111,17 @@ exports.getTv = (req, res, next) => {
    }
    else {
       return res.render('user/tv', { user: "" });
+   }
+}
+
+// show the phone
+exports.getPhonebefore = (req, res, next) => {
+
+   if (req.session.email != undefined) {
+      return res.render('user/phonebefore', { user: req.session.email });
+   }
+   else {
+      return res.render('user/phonebefore', { user: "" });
    }
 }
 
@@ -113,6 +136,17 @@ exports.getPhone = (req, res, next) => {
    }
 }
 
+
+// show the laptop
+exports.getLaptopbefore = (req, res, next) => {
+
+   if (req.session.email != undefined) {
+      return res.render('user/laptopbefore', { user: req.session.email });
+   }
+   else {
+      return res.render('user/laptopbefore', { user: "" });
+   }
+}
 // show the laptop
 exports.getLaptop = (req, res, next) => {
 

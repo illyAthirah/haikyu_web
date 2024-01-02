@@ -46,12 +46,21 @@ router.route('/service')
 router.route('/payment')
         .get(userControler.getformpayment )//get request for form
         // .post(userControler.postPayment); //post request form the service
-        
+    
+router.route('/tvbefore')
+        .get(userControler.geTvbefore )//get request for tv
+
 router.route('/tv')
         .get(userControler.getTv )//get request for tv
 
+router.route('/phonebefore')
+        .get(userControler.getPhonebefore )//get request for tv
+
 router.route('/phone')
         .get(userControler.getPhone )//get request for tv
+
+router.route('/laptopbefore')
+        .get(userControler.getLaptopbefore )//get request for tv
 
 router.route('/laptop')
         .get(userControler.getLaptop )//get request for tv
