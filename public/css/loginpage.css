@@ -4,19 +4,25 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 0vh;
     font-family: 'Jost', sans-serif;
-    background: linear-gradient(to bottom, #161a4d, #2b3563, #24293e);
+    background: linear-gradient(to bottom, #161a4d, #161a4d);
+    
 }
 
 .main {
     width: 450px;
     height: 800px;
-    background: red;
+    padding-top: 40%;
     overflow: hidden;
-    background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover;
-    border-radius: 10px;
-    box-shadow: 5px 20px 50px #000;
+    border-radius: 20px;
+    box-shadow: 5px 20px 50px #15065b;
+}
+
+.row{
+    padding-top: 10%;
+    margin-bottom: 50%;
+
 }
 
 .login {
