@@ -30,22 +30,22 @@ router.route('/status')
 router.route('/showStatus')
        .get(userControler.authentication,userControler.getShowStatus);// get show status
 
-//router.post('/deletereq',userControler.deleteBooking,userControler.getShowStatus);       
+router.post('/deletereq',userControler.deleteBooking,userControler.getShowStatus);       
        
 router.get('/contact',userControler.getContact); 
 
 router.route('/device')
-       .get( /*userControler.authentication,*/ userControler.getformdevices) //get request for form
-       //.post(userControler.postDevice); //post request form the form
+       .get( userControler.authentication, userControler.getformdevices) //get request for form
+       .post(userControler.postDevice); //post request form the form
 
 
 router.route('/service')
        .get(userControler.getformservices)//get request for form
-        //.post(userControler.postService); //post request form the service
+        .post(userControler.postService); //post request form the service
 
 router.route('/payment')
         .get(userControler.getformpayment )//get request for form
-        // .post(userControler.postPayment); //post request form the service
+         .post(userControler.postPayment); //post request form the service
     
 router.route('/tvbefore')
         .get(userControler.getTvbefore )//get request for tv

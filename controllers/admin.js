@@ -47,9 +47,9 @@ exports.postLogin = (req, res, next) => {
         "WHERE name = " + mysql.escape(req.body.name) +
         "AND pass = " + mysql.escape(req.body.pass);
 
-    data1 = "SELECT * " +
+    /*data1 = "SELECT * " +
         "FROM  bookingstatus " +
-        "WHERE statusID = 0 ";
+        "WHERE statusID = 0 ";*/
 
     connectDB.query(data, (err, result) => {
         if (err) throw err;
