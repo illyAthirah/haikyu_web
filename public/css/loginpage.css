@@ -1,13 +1,11 @@
-body {
+.body {
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
     min-height: 0vh;
     font-family: 'Jost', sans-serif;
     background: linear-gradient(to bottom, #161a4d, #161a4d);
-    
 }
 
 .main {
@@ -17,12 +15,16 @@ body {
     overflow: hidden;
     border-radius: 20px;
     box-shadow: 5px 20px 50px #15065b;
+    text-align: center;
 }
 
 .row{
     padding-top: 10%;
     margin-bottom: 50%;
+}
 
+.container{
+	padding-top: 0%;
 }
 
 .login {
@@ -34,6 +36,7 @@ body {
     align-items: center;
     justify-content: center;
     transition: .8s ease-in-out;
+
 }
 
 .login form {

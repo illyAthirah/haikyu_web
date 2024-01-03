@@ -1,4 +1,4 @@
-body{
+.body{
 	margin: 0;
 	padding: 0;
 	display: flex;
@@ -6,27 +6,37 @@ body{
 	align-items: center;
 	min-height: 100vh;
 	font-family: 'Jost', sans-serif;
-	background: linear-gradient(to bottom, #161a4d, #2b3563, #24293e);
+	background: linear-gradient(to bottom, #161a4d, #161a4d, #161a4d);
+	font-family: "Inter",sans-serif;
 }
+
 .main{
-	width: 450px;
-	height: 800px;
-	background: red;
+	width: 500px;
+	height: 1100px;
+	background: #cee5f8;
 	overflow: hidden;
-	background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover;
 	border-radius: 10px;
 	box-shadow: 5px 20px 50px #000;
+	padding-top: 0%;
+	text-align: center;
+	
 }
+
+.container{
+	padding-top: 0%;
+}
+
 #chk{
 	display: none;
 }
 .signup{
+	padding-top: 0%;
 	position: relative;
 	width:100%;
 	height: 100%;
 }
 label{
-	color: #49f7ae;
+	color: #0f0d7a;
 	font-size: 2.3em;
 	justify-content: center;
 	display: flex;
