@@ -290,7 +290,7 @@ exports.getDevice = (req, res, next) => {
    res.render('user/formdevices', { user: req.session.email});
 }
 
-/*//get data from user for devices
+//get data from user for devices
 exports.postDevice = (req, res, next) => {
 
    var connectDB = mysql.createConnection({
@@ -311,7 +311,7 @@ exports.postDevice = (req, res, next) => {
    var date = req.body.date;
    //console.log(date)
    data = "INSERT INTO device " +
-      " VALUES ( '" + req.session.email + "','" + date + "','" + req.body.serialnumber + "','" + req.body.device_type + "','" + req.body.problem + "')";
+      " VALUES ( '" + req.session.deviceID + "','" + req.session.email + "','" + req.body.serialnumber + "','" + req.body.device_type + "','" + req.body.problem + "','" + req.body.othersprob + "')";
    
       data1 = "SELECT * " +
       " FROM  user " +
@@ -321,17 +321,17 @@ exports.postDevice = (req, res, next) => {
       connectDB.query(data, (err, result) => {
          if (err) throw err;
          else {
-            /*connectDB.query(data1, (err1, result) => {
+            connectDB.query(data1, (err1, result) => {
                for (i in result) {
                   var a = result[i].date
                   a = a.toString()
                   result[i].date = a.slice(0, 15);
-               }*/
-               //res.render('user/formservices', { user: "", err: "", data: result });
-            //})
-            /*}
+               }
+               res.render('user/formservices', { user: "", err: "", data: result });
+            })
+            }
         })
-   }*/
+   }
    
 
 
@@ -340,7 +340,7 @@ exports.getService = (req, res, next) => {
    res.render('user/formservices', { user: req.session.email});
 }
 
-/*//get data from user for service
+//get data from user for service
 exports.postService = (req, res, next) => {
 
    var connectDB = mysql.createConnection({
@@ -360,45 +360,45 @@ exports.postService = (req, res, next) => {
 
   
     data = "INSERT INTO service " +
-      " VALUES ( '" + req.session.serviceID + "','" + req.session.email + "','" + req.body.method + "','" + req.body.address + "','" + req.body.state + "','" + req.body.postcode + "','" + req.body.tracking + "', '" + req.body.courier + "')";
+      " VALUES ( '" + req.session.serviceID + "','" + req.session.email + "','" + req.body.method + "','" + req.body.address + "','" + req.body.state + "','" + req.body.postcode + "','" + req.body.tracking + "', '" + req.body.courier + "', '" + req.body.streetaddress + "', '" + req.body.city + "', '" + req.body.state_home + "', '" + req.body.state_home + "')";
    
       
-      /*data1 = "SELECT * " +
+      data1 = "SELECT * " +
       " FROM  user " +
-      " WHERE email = " + mysql.escape(req.session.email);*/
+      " WHERE email = " + mysql.escape(req.session.email);
       
    
-      /*connectDB.query(data, (err, result) => {
+      connectDB.query(data, (err, result) => {
          if (err) throw err;
          else {
-            /*connectDB.query(data1, (err1, result) => {
+            connectDB.query(data1, (err1, result) => {
                for (i in result) {
                   var a = result[i].date
                   a = a.toString()
                   result[i].date = a.slice(0, 15);
-               }*/
-               //res.render('user/formpayment', { user: "", err: "", data: result });
-            //})*/
-       /*  }
+               }
+               res.render('user/formpayment', { user: "", err: "", data: result });
+            })
+         }
         })
-      /*connectDB.query(data, (err, result) => {
+      connectDB.query(data, (err, result) => {
          if (err) {
             console.error('Error inserting data into the database:', err);
             return res.render("user/formservices", { user: "", msg: [], err: ["Error inserting data into the database"] });
          } else {
             res.render('user/formpayment', { user: "", msg: ["Service data enter succesfully"], err: [] });
          }
-      });*/
- /*   
+      });
    
-} */
+   
+} 
 
 //get request for payment
 exports.getPayment = (req, res, next) => {
    res.render('user/formpayment', { user: req.session.email});
 }
 
-/*//get data from user for payment
+//get data from user for payment
 exports.postPayment = (req, res, next) => {
 
    var connectDB = mysql.createConnection({
@@ -419,7 +419,7 @@ exports.postPayment = (req, res, next) => {
    var date = req.body.cardexpdate;
    //console.log(date)
    var data = "INSERT INTO payment " +
-      " VALUES ( '" + req.session.payID + "','" + req.session.email + "','" + req.body.paymentOption + "','" + req.body.bankname + "','" + req.body.namecard + "','" + req.body.cardnumber + "','" + date + "', '" + req.body.cvv + "')";
+      " VALUES ( '" + req.session.payID + "','" + req.session.email + "','" + req.body.paymentOption + "','" + req.body.bankname + "','" + req.body.namecard + "','" + req.body.cardnumber + "', '" + req.body.cvv + "')";
    
       
    
@@ -434,7 +434,7 @@ exports.postPayment = (req, res, next) => {
     
    
 } 
-*/
+
 
 
 
