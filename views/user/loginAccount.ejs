@@ -115,36 +115,35 @@
 </div>
 <!-- Navbar End -->
 
-<br>
 
     <!--login -->
-    <div style="position: fixed; top: 70%; left: 50%; transform: translate(-50%, -50%);">
-        <div class="container mt-5 mb-5">       
-            <div class="row">
-                <div class="main">
-                    <div class="login">
-                        <form action="/login" method="POST">
-                            <label>Login</label><br>
-                            <% if(msg.length) { %>
-                                <%  for(i=0 ;i<msg.length;i++){%>
-                                <h3 style="color: #17b978;" class="text-center"><%=msg[i]%></h3><br>
-                                <%   }%>
-                                <%   } %>
-                                <% if(err.length) { %>
-                                    <%  for(i=0 ;i<err.length;i++){%>
-                                    <h3 style="color: #ff304f;" class="text-center"><%=err[i]%></h3><br>
-                                    <%   } %>
-                                    <%   } %>
-                            <input type="email" name="email" placeholder="Email" required=""><br><br>
-                            <input type="password" name="password" placeholder="Password" required="">
-                            <input type="submit" value="Login" class="button">
-                           
-                           <a href="/" class="btn btn-secondary rounded-pill px-5 py-3 text-white" >Back to Home</a>
-                        </form>
-                    </div>
-                </div>  
-			</div>     
+<div class="container-fluid">
+    <div class="row justify-content-center align-items-center vh-100">
+        <div class="col-md-5 mt-2">
+            <div class="login">
+                <form action="/login" method="POST">
+                    <label>Login</label><br>
+                    <% if(msg.length) { %>
+                        <%  for(i=0 ;i<msg.length;i++){%>
+                        <h3 style="color: #17b978;" class="text-center"><%=msg[i]%></h3><br>
+                        <%   }%>
+                        <%   } %>
+                        <% if(err.length) { %>
+                            <%  for(i=0 ;i<err.length;i++){%>
+                            <h3 style="color: #ff304f;" class="text-center"><%=err[i]%></h3><br>
+                            <%   } %>
+                            <%   } %>
+                    <input type="email" name="email" placeholder="Email" required=""><br><br>
+                    <input type="password" name="password" placeholder="Password" required="">
+                    <input type="submit" value="Login" class="button">
+                   
+                    <a href="/" class="btn btn-secondary rounded-pill px-5 py-3 text-white">Back to Home</a>
+                
+                </form>
+            </div>
         </div>
     </div>
+</div>
+
 </body>
 </html>
