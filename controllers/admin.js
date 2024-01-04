@@ -15,10 +15,10 @@ exports.getLogin = (req, res, next) => {
             password: "",
             database: "haikyu"
         });
-        data1 = "SELECT * " +
+        /*data1 = "SELECT * " +
             "FROM  bookingstatus " +
-            "WHERE statusID = 0 ";
-        connectDB.query(data1, (err1, result1) => {
+            "WHERE statusID = 0 ";*/
+        connectDB.query(/*data1, */(err1, result1) => {
             if (err1) throw err1;
             else {
                 for (i in result1) {
@@ -56,7 +56,7 @@ exports.postLogin = (req, res, next) => {
         else {
             if (result.length) {
                 req.session.admin = result[0].name;
-                connectDB.query(data1, (err1, result1) => {
+                connectDB.query(/*data1,*/ (err1, result1) => {
                     if (err1) throw err1;
                     else {
                         for (i in result1) {
