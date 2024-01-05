@@ -191,34 +191,34 @@
                     <div class="col-md-offset-3 col-md-6">
                         <div class="form-container">
                             <h3 class="title">Book to Repair Yours Now!</h3>
-                            <form action="" class="form-horizontal">
+                            <form action="/device" method="POST" class="form-horizontal">
 
                             <div class="form-group">
-                                <label for="booking">Request Date: </label><br>
+                                <!-- <label for="booking">Request Date: </label><br>
                                 <input class="form-control" type="date" required>
-                            </div>
+                            </div> -->
 
                             <hr>
                             <h2 class="sub-title">Devices Information</h2>
                             
                             <div class="form-group">
                                 <h6>Serial Number:</h6>
-                                <input type="text" id="serial" class="form-control" placeholder="Serial Number">
+                                <input type="text" name="serialnumber" id="serial" class="form-control" placeholder="Serial Number">
                             </div><br>
 
                             <h6>Type of devices : </h6>
-                            <input type="radio" name="type" id="laptop" value="laptop" checked>
+                            <input type="radio" name="device_type" id="laptop" value="laptop" checked>
                             <div class="form-group"><label>Laptop</label></div><br>
-                            <input type="radio" name="type" id="tv" value="tv">
+                            <input type="radio" name="device_type" id="tv" value="tv">
                             <div class="form-group"><label>TV</label></div><br>
-                            <input type="radio" name="type" id="phone" value="phone"> 
+                            <input type="radio" name="device_type" id="phone" value="phone"> 
                             <div class="form-group"><label>Smartphone</label></div><br>
                             <br><br>
 
                                 <div id="laptopproblem">
                                     <p>
                                         <h6>Select Your Devices Problem : </h6>
-                                      <select class="form-control" name="">
+                                      <select class="form-control" name="problem">
                                             <option value="0" selected>Select your laptop problem</option>
                                             <option value="70">Format (RM70)</option>
                                             <option value="150">LCD replacement (RM 150)</option>
@@ -237,7 +237,7 @@
                                 <div id="tvproblem">
                                     <p>
                                         <h6>Select Your TV Problem : </h6>
-                                      <select class="form-control" name="">
+                                      <select class="form-control" name="problem">
                                             <option value="0" selected>Select your TV problem</option>
                                             <option value="250">Flat/Crack screen plasma (RM 600)</option>
                                             <option value="150">Software issues (RM 200)</option>
@@ -251,7 +251,7 @@
                                 <div id="phoneproblem">
                                     <p>
                                         <h6>Select Your Smartphone Problem : </h6>
-                                      <select class="form-control" name="">
+                                      <select class="form-control" name="problem">
                                             <option value="0" selected>Select your smartphone problem</option>
                                             <option value="250">Motherboard (RM250)</option>
                                             <option value="150">LCD replacement (RM150)</option>
@@ -263,9 +263,9 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h6>Others Problem:</h6>
+                                    <!--<h6>Others Problem:</h6>
                                     <input type="text" id="others" class="form-control" placeholder="Problem Details">
-                                </div><br><br>
+                                </div><br><br>-->
 								<hr>
 
                                 <div class="column-container" style="display: flex; justify-content: space-between; margin-left: 10px; box-sizing: border-box;">
@@ -273,7 +273,9 @@
                                         <button href="/homeafter" class="btn signup" type="submit">PREVIOUS</button>
                                     </div>
                                     <div class="column">
-                                        <button href="/service"  class="btn signup" type="submit">NEXT</button>
+                         
+<button class="btn signup" type="submit">NEXT</button>         
+      <!--<button href="/serviceafterclass="btn signup" type="submit">NEXT</button>'-->
                                     </div>
                                 </div>
                                 
