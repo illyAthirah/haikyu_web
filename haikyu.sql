@@ -47,7 +47,46 @@ INSERT INTO `user` (`email`, `firstname`, `lastname`, `username`, `phone`, `addr
 --
 -- Indexes for dumped tables
 --
+-- --------------------------------------------------------
 
+--
+-- Table structure for table `bookingstatus`
+--
+
+CREATE TABLE `bookingstatus` (
+  `email` varchar(40) NOT NULL,
+  `category` varchar(20) NOT NULL,
+  `type` varchar(20) NOT NULL,
+  `roomWant` int(11) NOT NULL,
+  `status` int(11) DEFAULT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `bookingstatus`
+--
+
+INSERT INTO `bookingstatus` (`email`, `category`, `type`, `roomWant`, `status`, `date`) VALUES
+('iamsabit99@gmail.com', 'Business Class ', 'Single Bed', 21, 1, '2020-05-03');
+
+--
+-- Indexes for dumped tables
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `name` varchar(500) NOT NULL,
+  `pass` varchar(100) NOT NULL,
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`name`, `pass`) VALUES
+('admin', 'admin');
+--
+-- Indexes for dumped tables
 --
 -- Indexes for table `user`
 --
