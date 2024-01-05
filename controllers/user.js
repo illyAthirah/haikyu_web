@@ -92,6 +92,16 @@ exports.getformpayment = (req, res, next) => {
    }
 }
 
+// show the form devices
+exports.getstatus = (req, res, next) => {
+
+   if (req.session.email != undefined) {
+      return res.render('user/status', { user: req.session.email });
+   }
+   else {
+      return res.render('user/status', { user: "" });
+   }
+}
 // show the tv
 exports.getTvbefore = (req, res, next) => {
 
