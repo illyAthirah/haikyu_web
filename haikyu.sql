@@ -71,6 +71,18 @@ INSERT INTO `bookingstatus` (`email`, `category`, `type`, `roomWant`, `status`, 
 
 --
 -- Indexes for dumped tables
+--
+-- Table structure for table `device`
+--
+
+CREATE TABLE `device` (
+  `email` varchar(500) NOT NULL,
+  `serialnumber` varchar(500) NOT NULL,
+  `device_type` varchar(500) NOT NULL,
+  `problem` varchar(500) NOT NULL,
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
 -- Table structure for table `admin`
 --
 
