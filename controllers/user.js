@@ -321,7 +321,7 @@ exports.postDevice = (req, res, next) => {
    var date = req.body.date;
    //console.log(date)
    data = "INSERT INTO device " +
-      " VALUES ('" + req.session.email + "','" + req.body.serialnumber + "','" + req.body.device_type + "','" + req.body.problem + "')";
+      " VALUES ('" + req.session.deviceID + "','" + req.session.email + "','" + req.body.serialnumber + "','" + req.body.device_type + "','" + req.body.problem + "')";
    
       data1 = "SELECT * " +
       " FROM  user " +
@@ -331,14 +331,15 @@ exports.postDevice = (req, res, next) => {
       connectDB.query(data, (err, result) => {
          if (err) throw err;
          else {
-            connectDB.query(data1, (err1, result) => {
+          /* connectDB.query(data1, (err1, result) => {
                for (i in result) {
                   var a = result[i].date
                   a = a.toString()
                   result[i].date = a.slice(0, 15);
-               }
+               }*/
+            
                res.render('user/formservices', { user: "", err: "", data: result });
-            })
+            //})
             }
         })
    }
@@ -370,7 +371,7 @@ exports.postService = (req, res, next) => {
 
   
     data = "INSERT INTO service " +
-      " VALUES ( '" + req.session.serviceID + "','" + req.session.email + "','" + req.body.method + "','" + req.body.address + "','" + req.body.state + "','" + req.body.postcode + "','" + req.body.tracking + "', '" + req.body.courier + "', '" + req.body.streetaddress + "', '" + req.body.city + "', '" + req.body.state_home + "', '" + req.body.state_home + "')";
+      " VALUES ( '" + req.session.serviceID + "','" + req.session.email + "','" + req.body.method + "','" + req.body.streetaddress + "','" + req.body.city + "','" + req.body.state_home + "','" + req.body.postcode_home + "', '" + req.body.address_pickup + "', '" + req.body.state_pickup + "', '" + req.body.postcode_pickup + "', '" + req.body.tracking + "','" + req.body.courier + "')";
    
       
       data1 = "SELECT * " +
@@ -381,14 +382,14 @@ exports.postService = (req, res, next) => {
       connectDB.query(data, (err, result) => {
          if (err) throw err;
          else {
-            connectDB.query(data1, (err1, result) => {
+            /*connectDB.query(data1, (err1, result) => {
                for (i in result) {
                   var a = result[i].date
                   a = a.toString()
                   result[i].date = a.slice(0, 15);
-               }
+               }*/
                res.render('user/formpayment', { user: "", err: "", data: result });
-            })
+            //})
          }
         })
       connectDB.query(data, (err, result) => {
@@ -429,7 +430,7 @@ exports.postPayment = (req, res, next) => {
    var date = req.body.cardexpdate;
    //console.log(date)
    var data = "INSERT INTO payment " +
-      " VALUES ( '" + req.session.payID + "','" + req.session.email + "','" + req.body.paymentOption + "','" + req.body.bankname + "','" + req.body.namecard + "','" + req.body.cardnumber + "', '" + req.body.cvv + "')";
+      " VALUES ('" + req.session.payID + "','" + req.session.email + "','" + req.body.payment + "','" + req.body.bankname + "','" + req.body.namecard + "','" + req.body.cardnumber + "','" + req.body.expireddate + "', '" + req.body.cvv + "')";
    
       
    
@@ -449,7 +450,7 @@ exports.postPayment = (req, res, next) => {
 
 
 
-//post status request
+/*//post status request
 
 exports.postStatus = (req, res, next) => {
 
@@ -462,11 +463,11 @@ exports.postStatus = (req, res, next) => {
    });
    var date = req.body.date;
    //console.log(date)
-   data = "INSERT INTO bookingstatus " +
-      " VALUES ('" + req.session.email + "','" + req.body.name + "','" + req.body.type + "','" + req.body.roomWant + "','" + 0 + "','" + date + "')"
+   data = "INSERT INTO bookstatus " +
+      " VALUES ('" + req.session.statusID + "','" + req.session.email + "','" + req.body.deviceID + "','" + req.body.serviceID + "','" + req.body.payID + "','" + 0 + "','" + date + "')"
 
    data1 = "SELECT * " +
-      " FROM  bookingstatus " +
+      " FROM  bookstatus " +
       " WHERE email = " + mysql.escape(req.session.email);
       
    connectDB.query(data, (err, reslt) => {
@@ -478,15 +479,15 @@ exports.postStatus = (req, res, next) => {
                a = a.toString()
                result[i].date = a.slice(0, 15);
             }
-            res.render('user/statusShow', { user: req.session.email, msg: "Your booking is placed", err: "", data: result });
+            res.render('user/status', { user: req.session.email, msg: "Your booking is placed", err: "", data: result });
          })
       }
    })
-}
+}*/
 
 
 //get status
-exports.getShowStatus = (req, res, next) => {
+exports.getStatus = (req, res, next) => {
 
    var connectDB = mysql.createConnection({
       host: "localhost",
@@ -496,7 +497,7 @@ exports.getShowStatus = (req, res, next) => {
    });
 
    data = "SELECT * " +
-      " FROM  bookingstatus " +
+      " FROM  bookstatus " +
       " WHERE email = " + mysql.escape(req.session.email);
 
    connectDB.query(data, (err, result) => {
@@ -509,10 +510,10 @@ exports.getShowStatus = (req, res, next) => {
             result[i].date = a.slice(0, 15);
          }
          if (result.length < 1) {
-            res.render('user/statusShow', { user: req.session.email, msg: "", err: "You dont have any data", data: result });
+            res.render('user/status', { user: req.session.email, msg: "", err: "You dont have any data", data: result });
          }
          else {
-            res.render('user/statusShow', { user: req.session.email, msg: "", err: "", data: result });
+            res.render('user/status', { user: req.session.email, msg: "", err: "", data: result });
          }
       }
    })

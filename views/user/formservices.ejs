@@ -132,7 +132,7 @@
         <div class="container-fluid bg-primary">
             <div class="container">
                 <nav class="navbar navbar-dark navbar-expand-lg py-0">
-                    <a href="/" class="navbar-brand">
+                    <a href="/serviceafter" method="POST" class="navbar-brand">
                         <h1 class="text-white fw-bold d-block">E-<span class="text-secondary">HAIKYU</span> </h1>
                     </a>
                     <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -198,7 +198,7 @@
                     <div class="col-md-offset-3 col-md-6">
                         <div class="form-container">
                             <h3 class="title">Book to Repair Yours Now!</h3>
-                            <form action="" class="form-horizontal">
+                            <form action="/service" method="POST" class="form-horizontal">
 
                             <hr>
                             <h2 class="sub-title">Pickup/Post Method</h2>
@@ -218,18 +218,18 @@
             
                                 <div class="form-group">
                                     <label>Street Address: </label>
-                                    <input type="text" id="address" class="form-control" placeholder="Address">
+                                    <input type="text" id="address" class="form-control" placeholder="Address" name="streetaddress">
                                 </div>
 
                                 <div class="form-group">
                                     <label>City: </label>
-                                    <input type="text"  id="city" class="form-control" placeholder="City">
+                                    <input type="text"  id="city" class="form-control" placeholder="City" name="city">
                                 </div>
 
                                 <div class="form-group">
                                     <label>State: </label><br>
-                                    <select class="form-control" name="state" id="state">
-                                        <option value="select">Select</option>
+                                    <select class="form-control" name="state_home" id="state_home">
+                                        <option value="">Select</option>
                                         <option value="kl">Kuala Lumpur</option>
                                         <option value="selangor">Selangor</option>
                                         <option value="melaka">Melaka</option>
@@ -249,7 +249,7 @@
 
                                 <div class="form-group">
                                     <label>Postcode: </label><br>
-                                    <input type="text" id="postcode" class="form-control" placeholder="Postcode">
+                                    <input type="text" id="postcode" class="form-control" placeholder="Postcode" name="postcode_home">
                                 </div><br>
                             </div>
 
@@ -258,13 +258,13 @@
                                 <h2 class="sub-title">Your Address Details</h2>
                                 <div class="form-group">
                                     <label>Address: </label>
-                                    <input type="text" value="address" id="address" class="form-control" placeholder="Address">
+                                    <input type="text" id="address" class="form-control" placeholder="Address" name="address_pickup">
                                 </div>
 
                                 <div class="form-group">
                                     <label>State: </label><br>
-                                    <select class="form-control" name="state" id="state">
-                                        <option value="select">Select</option>
+                                    <select class="form-control" name="state_pickup" id="state_pickup">
+                                        <option value="">Select</option>
                                         <option value="kl">Kuala Lumpur</option>
                                         <option value="selangor">Selangor</option>
                                         <option value="melaka">Melaka</option>
@@ -284,7 +284,7 @@
 
                                 <div class="form-group">
                                     <label>Postcode: </label><br>
-                                    <input type="text" value="postcode" id="postcode" class="form-control" placeholder="Postcode">
+                                    <input type="text" id="postcode" class="form-control" placeholder="postcode" name="postcode_pickup">
                                 </div><br>
                             </div>
 
@@ -298,7 +298,7 @@
                                 
                                 <div class="form-group">
                                     <label>Tracking Number: </label><br>
-                                    <input type="text" id="tracking" class="form-control" placeholder="Tracking Number">
+                                    <input type="text" id="tracking" class="form-control" placeholder="Tracking Number" name="tracking">
                                 </div><br>
 
                                 <div class="form-group">
@@ -320,7 +320,9 @@
                                     <a href="/device" class="btn signup">PREVIOUS</a>
                                 </div>
                                 <div class="column">
-                                    <a href="/payment"  class="btn signup">NEXT</a>
+                                    <!--<a href="/payment"  class="btn signup">NEXT</a>-->
+                                    <input type="submit" value="Next" class="btn signup" text-align="center">
+
                                 </div>
                             </div>
                             

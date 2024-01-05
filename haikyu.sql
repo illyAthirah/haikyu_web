@@ -44,14 +44,6 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`email`, `firstname`, `lastname`, `username`, `phone`, `address`, `password`) VALUES
 ('dinie03@gmail.com', 'sdfsdfas', 'sadfasdf', 'sdfasdfa', 2147483647, '4234wfsdfdsfsafs', '123');
 
---
--- Indexes for dumped tables
---
--- --------------------------------------------------------
-
---
--- Table structure for table `bookingstatus`
---
 
 CREATE TABLE `bookingstatus` (
   `email` varchar(40) NOT NULL,
@@ -69,22 +61,12 @@ CREATE TABLE `bookingstatus` (
 INSERT INTO `bookingstatus` (`email`, `category`, `type`, `roomWant`, `status`, `date`) VALUES
 ('iamsabit99@gmail.com', 'Business Class ', 'Single Bed', 21, 1, '2020-05-03');
 
---
--- Indexes for dumped tables
---
--- Table structure for table `device`
---
-
 CREATE TABLE `device` (
   `email` varchar(500) NOT NULL,
   `serialnumber` varchar(500) NOT NULL,
   `device_type` varchar(500) NOT NULL,
   `problem` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Table structure for table `admin`
---
 
 CREATE TABLE `admin` (
   `name` varchar(500) NOT NULL,
@@ -98,10 +80,7 @@ CREATE TABLE `admin` (
 INSERT INTO `admin` (`name`, `pass`) VALUES
 ('admin', 'admin');
 --
--- Indexes for dumped tables
---
--- Indexes for table `user`
---
+
 ALTER TABLE `user`
   ADD PRIMARY KEY (`email`);
 COMMIT;
