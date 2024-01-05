@@ -311,7 +311,7 @@ exports.postDevice = (req, res, next) => {
    var date = req.body.date;
    //console.log(date)
    data = "INSERT INTO device " +
-      " VALUES ( '" + req.session.deviceID + "','" + req.session.email + "','" + req.body.serialnumber + "','" + req.body.device_type + "','" + req.body.problem + "','" + req.body.othersprob + "')";
+      " VALUES ('" + req.session.email + "','" + req.body.serialnumber + "','" + req.body.device_type + "','" + req.body.problem + "')";
    
       data1 = "SELECT * " +
       " FROM  user " +
