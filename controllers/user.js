@@ -36,6 +36,17 @@ exports.getHomeafter = (req, res, next) => {
   }
 }
 
+// show the home page
+exports.getConfirmBook = (req, res, next) => {
+
+   if (req.session.email != undefined) {
+     return res.render('user/confirmbook', { user: req.session.email });
+    }
+    else {
+     return res.render('user/confirmbook', { user: "" });
+   }
+ }
+
 
 // show the home service before
 exports.getServicesbefore = (req, res, next) => {
@@ -322,6 +333,7 @@ exports.postDevice = (req, res, next) => {
    //console.log(date)
    data = "INSERT INTO device " +
       " VALUES ('" + req.session.deviceID + "','" + req.session.email + "','" + req.body.serialnumber + "','" + req.body.device_type + "','" + req.body.problem + "')";
+      
    
       data1 = "SELECT * " +
       " FROM  user " +
@@ -439,7 +451,7 @@ exports.postPayment = (req, res, next) => {
             console.error('Error inserting data into the database:', err);
             return res.render("user/formpayment", { user: "", msg: [], err: ["Error inserting data into the database"] });
          } else {
-            res.render('user/home', { user: "", msg: ["Payment data enter succesfully"], err: [] });
+            res.render('user/confirmbook', { user: "", msg: ["Payment data enter succesfully"], err: [] });
          }
       });
     
@@ -450,9 +462,9 @@ exports.postPayment = (req, res, next) => {
 
 
 
-/*//post status request
+//confirm book
 
-exports.postStatus = (req, res, next) => {
+exports.postConfirmBook = (req, res, next) => {
 
    //console.log(req.body);
    var connectDB = mysql.createConnection({
@@ -461,29 +473,38 @@ exports.postStatus = (req, res, next) => {
       password: "",
       database: "haikyu"
    });
-   var date = req.body.date;
+   //var date = req.body.date;
    //console.log(date)
    data = "INSERT INTO bookstatus " +
-      " VALUES ('" + req.session.statusID + "','" + req.session.email + "','" + req.body.deviceID + "','" + req.body.serviceID + "','" + req.body.payID + "','" + 0 + "','" + date + "')"
-
+      " VALUES ('" + req.session.statusID + "','" + req.session.email + "','" + req.session.deviceID + "','" + req.session.serviceID + "','" + req.session.payID + "')";
+//,'" + date + "'
    data1 = "SELECT * " +
       " FROM  bookstatus " +
       " WHERE email = " + mysql.escape(req.session.email);
+   data2 = "SELECT * " +
+      " FROM  device " +
+      " WHERE deviceID = " + mysql.escape(req.session.deviceID);
+   data3 = "SELECT * " +
+      " FROM  service " +
+      " WHERE serviceID = " + mysql.escape(req.session.serviceID);
+   data3 = "SELECT * " +
+      " FROM  payment " +
+      " WHERE payID = " + mysql.escape(req.session.payID);
       
    connectDB.query(data, (err, reslt) => {
       if (err) throw err;
       else {
-         connectDB.query(data1, (err1, result) => {
+         /*connectDB.query(data1, (err1, result) => {
             for (i in result) {
                var a = result[i].date
                a = a.toString()
                result[i].date = a.slice(0, 15);
-            }
+            }*/
             res.render('user/status', { user: req.session.email, msg: "Your booking is placed", err: "", data: result });
-         })
+         //})
       }
    })
-}*/
+}
 
 
 //get status
@@ -499,6 +520,7 @@ exports.getStatus = (req, res, next) => {
    data = "SELECT * " +
       " FROM  bookstatus " +
       " WHERE email = " + mysql.escape(req.session.email);
+
 
    connectDB.query(data, (err, result) => {
 

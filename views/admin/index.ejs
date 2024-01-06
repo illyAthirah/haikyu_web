@@ -19,14 +19,14 @@
   <meta name="author" content="">
   <title>Admin: Home</title>
   <!-- Bootstrap core CSS-->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../vendor/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
-  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="../vendor/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
-  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link href="../vendor/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
+  <link href="../css/sb-admin.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -44,18 +44,18 @@
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+        <!--<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
           <a class="nav-link" href="/admin/search">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Update</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="/admin/addhotel">
+          <a class="nav-link" href="/admin/add">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Add Data</span>
           </a>
-        </li>
+        </li>-->
 
       </ul>
 
@@ -83,8 +83,8 @@
                   <th></th>
                   <th>Email</th>
                   <th>Serial Number</th>
-                  <th></th>
-                  <th></th>
+                  <th>Device</th>
+                  <th>Method</th>
                   <th>Date</th>
                   <th>Status</th>
                 </tr>
@@ -95,19 +95,17 @@
                 <tr>
                   <th><%=i%></th>
                   <th><%=data[i].email%></th>
-                  <th><%=data[i].category%></th>
-                  <th><%=data[i].type%></th>
-                  <th><%=data[i].roomWant%></th>
+                  <th><%=data[i].device%></th>
+                  <th><%=data[i].method%></th>
                   <th><%=data[i].date%></th>
                   <th>
-                    <form action="/admin/chnagestatus" method="POST">
-                      <input type="hidden" name="mail" value="<%=data[i].email%>">
-                      <input type="hidden" name="cat" value="<%=data[i].category%>">
-                      <input type="hidden" name="type" value="<%=data[i].type%>">
-                      <input type="hidden" name="want" value="<%=data[i].roomWant%>">
+                    <form action="/admin/changestatus" method="POST">
+                      <input type="hidden" name="email" value="<%=data[i].email%>">
+                      <input type="hidden" name="device" value="<%=data[i].device%>">
+                      <input type="hidden" name="method" value="<%=data[i].method%>">
                       <input type="hidden" name="date" value="<%=data[i].date%>">
-                    <input type="submit" class="btn btn-success btn-ml" name="click" value="Approve">
-                    <input type="submit" class="btn btn-danger btn-ml"  name="click" value="Cancel">
+                    <input type="submit" class="btn btn-success btn-ml" name="click" value="Repaired">
+                    <input type="submit" class="btn btn-danger btn-ml"  name="click" value="In Progress">
                     </form> 
                   </th>
                 </tr>
@@ -120,11 +118,10 @@
               <h3 style="color: #ff304f;" class="text-center">No Data Found</h3>
               <thead class="bg-primary text-white">
                 <tr>
-                  <th>SL No.</th>
+                  <th>Serial Number</th>
                   <th>Email</th>
-                  <th>Category</th>
-                  <th>Type</th>
-                  <th>Quantity</th>
+                  <th>Device</th>
+                  <th>Method</th>
                   <th>Date</th>
                   <th>Status</th>
                 </tr>
@@ -155,7 +152,7 @@
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
-          <small>2022 Copyright © Hotel Management System. All Rights Reserved.</small>
+          <small>2023 Copyright © E-HAIKYU. All Rights Reserved.</small>
         </div>
       </div>
     </footer>

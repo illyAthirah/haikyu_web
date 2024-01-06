@@ -25,13 +25,12 @@ router.route('/createaccount')
        .post(userControler.postCreateAccount); //post request for create account   
  
        
+
+
 router.route('/status')
-       //.post(userControler.postStatus); 
+       .get(userControler.authentication,userControler.getStatus);// get show status
 
-router.route('/showStatus')
-       .get(userControler.authentication,userControler.getShowStatus);// get show status
-
-router.post('/deletereq',userControler.deleteBooking,userControler.getShowStatus);       
+router.post('/deletereq',userControler.deleteBooking,userControler.getStatus);       
        
 router.get('/contact',userControler.getContact); 
 
@@ -39,6 +38,9 @@ router.route('/device')
        .get( userControler.authentication, userControler.getformdevices) //get request for form
        .post(userControler.postDevice); //post request form the form
 
+router.route('/confirmbook')
+       .get( userControler.getConfirmBook) //get request for form
+       .post(userControler.postConfirmBook); //post request form the form
 
 router.route('/service')
        .get(userControler.getformservices)//get request for form

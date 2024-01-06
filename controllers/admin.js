@@ -16,7 +16,7 @@ exports.getLogin = (req, res, next) => {
             database: "haikyu"
         });
         data1 = "SELECT * " +
-            "FROM  bookingstatus " +
+            "FROM  bookstatus " +
             "WHERE statusID = 0 ";
         connectDB.query(data1, (err1, result1) => {
             if (err1) throw err1;
@@ -48,7 +48,7 @@ exports.postLogin = (req, res, next) => {
         "AND pass = " + mysql.escape(req.body.pass);
 
     data1 = "SELECT * " +
-        "FROM  bookingstatus " +
+        "FROM  bookstatus " +
         "WHERE statusID = 0 ";
 
     connectDB.query(data, (err, result) => {
@@ -76,7 +76,7 @@ exports.postLogin = (req, res, next) => {
 }
 
 //change booking status
-exports.postChnageStatus = (req, res, next) => {
+exports.postChangeStatus = (req, res, next) => {
     //console.log(req.body);
 
     var connectDB = mysql.createConnection({
@@ -89,25 +89,25 @@ exports.postChnageStatus = (req, res, next) => {
 
     var value = 0;
 
-    if (req.body.click == "Approve") {
+    if (req.body.click == "Repaired") {
         value = 1;
-        data = "UPDATE bookingstatus " +
+        data = "UPDATE bookstatus " +
         " SET  status = " + mysql.escape(value) +
-        " WHERE email = " + mysql.escape(req.body.mail) +
-        " AND type = " + mysql.escape(req.body.type) +
-        " AND category = " + mysql.escape(req.body.cat) +
-        " AND roomWant = " + mysql.escape(req.body.want)
+        " WHERE email = " + mysql.escape(req.body.email) +
+        " AND device = " + mysql.escape(req.body.device) +
+        " AND method = " + mysql.escape(req.body.method) +
+        " AND payment = " + mysql.escape(req.body.payment)
 
     } else {
-        data = "DELETE FROM bookingstatus " +
-        " WHERE email = " + mysql.escape(req.body.mail) +
-        " AND type = " + mysql.escape(req.body.type) +
-        " AND category = " + mysql.escape(req.body.cat) +
-        " AND roomWant = " + mysql.escape(req.body.want)
+        data = "DELETE FROM bookstatus " +
+        " WHERE email = " + mysql.escape(req.body.email) +
+        " AND device = " + mysql.escape(req.body.device) +
+        " AND method = " + mysql.escape(req.body.method) +
+        " AND payment = " + mysql.escape(req.body.payment)
     }
     
     data1 = "SELECT * " +
-        "FROM  bookingstatus " +
+        "FROM  bookstatus " +
         "WHERE status = 0 ";
 
     connectDB.query(data, (err, result) => {
@@ -128,7 +128,7 @@ exports.postChnageStatus = (req, res, next) => {
 
 }
 
-//get add hotel page
+/*//get add hotel page
 
 exports.getAddHotel = (req, res, next) => {
     res.render('admin/addhotel', { msg: "", err: "" });
@@ -310,7 +310,7 @@ exports.updatePrevData = (req, res, next) => {
     })
 
 }
-
+*/
 //logout
 exports.logout = (req, res, next) => {
     req.session.destroy();

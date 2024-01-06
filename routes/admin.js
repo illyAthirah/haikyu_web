@@ -13,9 +13,9 @@ router.route('/')
 
 router.get('/logout',adminControler.logout) //get request   
 
-router.post('/chnagestatus',adminControler.postChnageStatus)// post change status
+router.post('/changestatus',adminControler.postChangeStatus)// post change status
 
-router.route('/addhotel')
+/*router.route('/addhotel')
       .get(adminControler.getAddHotel) // get request for hotel add page
       .post(adminControler.postAddHotel) // post request for hotel add to db
 
@@ -28,6 +28,6 @@ router.route('/update')
       
 router.route('/updateData')
       .post(adminControler.updatePrevData) // update prev data      
-
+*/
 
 module.exports = router;
