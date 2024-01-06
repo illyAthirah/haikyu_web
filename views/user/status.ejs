@@ -182,46 +182,33 @@
       
 
 
-        <h2>Status</h2>
-        <div class="table-wrapper">
-            <table class="fl-table">
-                <thead>
-                <tr>
-                    <th>Date And Time</th>
-                    <th>Email</th>
-                    <th>Devices Type</th>
-                    <th>Method Services</th>
-                    <th>Status</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Content 1</td>
-                    <td>Content 1</td>
-                    <td>Content 1</td>
-                    <td>Content 3</td>
-                    <td>Content 3</td>
-                </tr>
-                <tr>
-                    <td>Content 2</td>
-                    <td>Content 2</td>
-                    <td>Content 2</td>
-                    <td>Content 3</td>
-                    <td>Content 3</td>
-                </tr>
-                <tr>
-                    <td>Content 3</td>
-                    <td>Content 3</td>
-                    <td>Content 3</td>
-                    <td>Content 3</td>
-                    <td>Content 3</td>
-               </tr>
-               
- 
-                <tbody>
-            </table>
-        </div>
-       
+        <!-- Status.ejs -->
+<h2>Status</h2>
+<div class="table-wrapper">
+  <table class="fl-table">
+    <thead>
+      <tr>
+       <!--<th>Date And Time</th>-->
+        <th>Email</th>
+        <th>Devices Type</th>
+       <!----> <th>Method Services</th>-->
+        <!--<th>Status</th>-->
+      </tr>
+    </thead>
+    <tbody>
+      <% data.forEach((row) => { %>
+        <tr>
+          <!--<td><%= row.date_and_time %></td>-->
+          <td><%= row.email %></td>
+          <td><%= row.device_type %></td>
+         <!--<td><%= row.method %></td>-->
+          <!--<td><%= row.status %></td>-->
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</div>
+
 
 
  <!-- Footer Start -->

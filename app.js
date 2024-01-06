@@ -34,4 +34,35 @@ app.use("/admin" ,adminRouter);
   next();
 });*/
 
+/*app.get("/fetch",(req,res) => {
+  con.query("select * from device",function(err,result,fields){
+    if(err)
+  {
+    console.log(err)
+  }else{
+    //res.send(result)
+    
+    var r=JSON.parse(JSON.stringify(result));
+    console.log(r[0])
+      console.log(r[1].name)
+  }
+  })
+})*/
+
+app.get('/status', (req, res) => {
+  // Fetch data from the database
+  const query = 'SELECT * FROM device'; // Replace with your actual table name
+
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Error fetching data from the database: ', err);
+      res.status(500).send('Internal Server Error');
+    } else {
+      // Render your status page with the fetched data
+      res.render('/status', { data: results }); // Update 'status' with your actual page name
+    }
+  });
+});
+
+
 app.listen(3000, () => console.log("Server is Running..."));

@@ -36,16 +36,7 @@ exports.getHomeafter = (req, res, next) => {
   }
 }
 
-// show the home page
-exports.getConfirmBook = (req, res, next) => {
 
-   if (req.session.email != undefined) {
-     return res.render('user/confirmbook', { user: req.session.email });
-    }
-    else {
-     return res.render('user/confirmbook', { user: "" });
-   }
- }
 
 
 // show the home service before
@@ -103,16 +94,7 @@ exports.getformpayment = (req, res, next) => {
    }
 }
 
-// show the form devices
-exports.getstatus = (req, res, next) => {
 
-   if (req.session.email != undefined) {
-      return res.render('user/status', { user: req.session.email });
-   }
-   else {
-      return res.render('user/status', { user: "" });
-   }
-}
 // show the tv
 exports.getTvbefore = (req, res, next) => {
 
@@ -225,6 +207,30 @@ exports.getFAQafter= (req, res, next) => {
 exports.getLogin = (req, res, next) => {
    res.render('user/loginAccount', { user: "", msg: [], err: [] });
 }
+
+//show the satus page
+exports.getStatus = (req, res) => {
+   // Fetch data from the database
+
+   var connectDB = mysql.createConnection({
+      host: "localhost",
+      user: "root",
+      password: "",
+      database: "haikyu"
+   });
+   
+   const query = 'SELECT * FROM device'; // Replace with your actual table name
+ 
+   connectDB.query(query, (err, results) => {
+     if (err) {
+       console.error('Error fetching data from the database: ', err);
+       res.status(500).send('Internal Server Error');
+     } else {
+       // Render your status page with the fetched data
+       res.render('user/status', { data: results }); // Update 'status' with your actual page name
+     }
+   });
+ };
 
 //post page of login
 exports.postLogin = (req, res, next) => {
@@ -461,8 +467,17 @@ exports.postPayment = (req, res, next) => {
 
 
 
+// show the confirm page
+exports.getConfirmBook = (req, res, next) => {
 
-//confirm book
+   if (req.session.email != undefined) {
+     return res.render('user/confirmbook', { user: req.session.email });
+    }
+    else {
+     return res.render('user/confirmbook', { user: "" });
+   }
+ }
+// post confirm book
 
 exports.postConfirmBook = (req, res, next) => {
 
@@ -476,11 +491,11 @@ exports.postConfirmBook = (req, res, next) => {
    //var date = req.body.date;
    //console.log(date)
    data = "INSERT INTO bookstatus " +
-      " VALUES ('" + req.session.statusID + "','" + req.session.email + "','" + req.session.deviceID + "','" + req.session.serviceID + "','" + req.session.payID + "')";
+      " VALUES ('" + req.session.statusID + "','" + req.session.deviceID + "','" + req.session.serviceID + "','" + req.session.payID + "')";
 //,'" + date + "'
-   data1 = "SELECT * " +
+   /*data1 = "SELECT * " +
       " FROM  bookstatus " +
-      " WHERE email = " + mysql.escape(req.session.email);
+      " WHERE email = " + mysql.escape(req.session.email);*/
    data2 = "SELECT * " +
       " FROM  device " +
       " WHERE deviceID = " + mysql.escape(req.session.deviceID);
@@ -500,7 +515,7 @@ exports.postConfirmBook = (req, res, next) => {
                a = a.toString()
                result[i].date = a.slice(0, 15);
             }*/
-            res.render('user/status', { user: req.session.email, msg: "Your booking is placed", err: "", data: result });
+            res.render('user/status' ,{ user: "", msg: [], err: ["Error"] });
          //})
       }
    })
@@ -508,7 +523,7 @@ exports.postConfirmBook = (req, res, next) => {
 
 
 //get status
-exports.getStatus = (req, res, next) => {
+/*exports.getStatus = (req, res, next) => {
 
    var connectDB = mysql.createConnection({
       host: "localhost",
@@ -539,7 +554,7 @@ exports.getStatus = (req, res, next) => {
          }
       }
    })
-}
+}*/
 
 
 //delete booking request

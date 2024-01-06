@@ -14,7 +14,7 @@ router.get('/Aboutbefore',userControler.getAbout); //aboutbefore page
 router.get('/Aboutafter',userControler.getAboutafter); //aboutafter page 
 router.get('/faqbefore',userControler.getFAQ); //faqbefore page
 router.get('/faqafter',userControler.getFAQafter); //faqafter page
-router.get('/status',userControler.getstatus); //faqafter page
+router.get('/status',userControler.getStatus); //faqafter page
 
 router.route('/login')
        .get(userControler.getLogin) // get request for login
@@ -27,8 +27,7 @@ router.route('/createaccount')
        
 
 
-router.route('/status')
-       .get(userControler.authentication,userControler.getStatus);// get show status
+
 
 router.post('/deletereq',userControler.deleteBooking,userControler.getStatus);       
        
