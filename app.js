@@ -51,9 +51,9 @@ app.use("/admin" ,adminRouter);
 
 app.get('/status', (req, res) => {
   // Fetch data from the database
-  const query = 'SELECT * FROM device'; // Replace with your actual table name
+  const query = 'SELECT * FROM bookstatus'; // Replace with your actual table name
 
-  db.query(query, (err, results) => {
+  connectDB.query(query, (err, results) => {
     if (err) {
       console.error('Error fetching data from the database: ', err);
       res.status(500).send('Internal Server Error');
@@ -63,6 +63,9 @@ app.get('/status', (req, res) => {
     }
   });
 });
+
+
+
 
 
 app.listen(3000, () => console.log("Server is Running..."));

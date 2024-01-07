@@ -190,8 +190,11 @@
       <tr>
        <!--<th>Date And Time</th>-->
         <th>Email</th>
-        <th>Devices Type</th>
-       <!----> <th>Method Services</th>-->
+        <th>Serial Number</th>
+        <th>Device Type</th>
+       <th>Method Services</th>
+       <th>Payment Via</th>
+        <th>Status</th> <!-- Add this line -->
         <!--<th>Status</th>-->
       </tr>
     </thead>
@@ -200,14 +203,18 @@
         <tr>
           <!--<td><%= row.date_and_time %></td>-->
           <td><%= row.email %></td>
+          <td><%= row.serialnumber %></td>
           <td><%= row.device_type %></td>
-         <!--<td><%= row.method %></td>-->
+          <td><%= row.method %></td>
+          <td><%= row.payment %></td>
+          <td><%= row.status %></td> <!-- Add this line -->
           <!--<td><%= row.status %></td>-->
         </tr>
       <% }); %>
     </tbody>
   </table>
 </div>
+
 
 
 

@@ -14,20 +14,15 @@ router.get('/Aboutbefore',userControler.getAbout); //aboutbefore page
 router.get('/Aboutafter',userControler.getAboutafter); //aboutafter page 
 router.get('/faqbefore',userControler.getFAQ); //faqbefore page
 router.get('/faqafter',userControler.getFAQafter); //faqafter page
-router.get('/status',userControler.getStatus); //faqafter page
+router.get('/status',userControler.authentication, userControler.getStatus); //faqafter page
 
 router.route('/login')
        .get(userControler.getLogin) // get request for login
-       .post(userControler.postLogin)// post request for login
+       .post(userControler.postLogin);// post request for login
 
 router.route('/createaccount') 
        .get(userControler.getCreateAccount)    //get request for create account   
        .post(userControler.postCreateAccount); //post request for create account   
- 
-       
-
-
-
 
 router.post('/deletereq',userControler.deleteBooking,userControler.getStatus);       
        
@@ -37,16 +32,14 @@ router.route('/device')
        .get( userControler.authentication, userControler.getformdevices) //get request for form
        .post(userControler.postDevice); //post request form the form
 
-router.route('/confirmbook')
-       .get( userControler.getConfirmBook) //get request for form
-       .post(userControler.postConfirmBook); //post request form the form
+
 
 router.route('/service')
        .get(userControler.getformservices)//get request for form
         .post(userControler.postService); //post request form the service
 
 router.route('/payment')
-        .get(userControler.getformpayment )//get request for form
+        .get(userControler.getformpayment)//get request for form
          .post(userControler.postPayment); //post request form the service
     
 router.route('/tvbefore')

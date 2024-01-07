@@ -208,6 +208,9 @@ exports.getLogin = (req, res, next) => {
    res.render('user/loginAccount', { user: "", msg: [], err: [] });
 }
 
+
+   
+ 
 //show the satus page
 exports.getStatus = (req, res) => {
    // Fetch data from the database
@@ -219,18 +222,20 @@ exports.getStatus = (req, res) => {
       database: "haikyu"
    });
    
-   const query = 'SELECT * FROM device'; // Replace with your actual table name
+   const query = 'SELECT * FROM bookstatus WHERE email = ?'; // Update based on your actual table and column names
+
+  connectDB.query(query, [req.session.email], (err, results) => {
+    if (err) {
+      console.error('Error fetching data from the database: ', err);
+      // Handle the error appropriately, e.g., res.status(500).send('Internal Server Error');
+    } else {
+      // Render your 'user/status' page with the fetched data
+      res.render('user/status', { user: req.session.email, data: results });
+      // Update 'user/status' with your actual page name
+    }
+  });
+};
  
-   connectDB.query(query, (err, results) => {
-     if (err) {
-       console.error('Error fetching data from the database: ', err);
-       res.status(500).send('Internal Server Error');
-     } else {
-       // Render your status page with the fetched data
-       res.render('user/status', { data: results }); // Update 'status' with your actual page name
-     }
-   });
- };
 
 //post page of login
 exports.postLogin = (req, res, next) => {
@@ -457,7 +462,7 @@ exports.postPayment = (req, res, next) => {
             console.error('Error inserting data into the database:', err);
             return res.render("user/formpayment", { user: "", msg: [], err: ["Error inserting data into the database"] });
          } else {
-            res.render('user/confirmbook', { user: "", msg: ["Payment data enter succesfully"], err: [] });
+            res.render('user/status', { user: "", msg: ["Payment data enter succesfully"], err: [] });
          }
       });
     
@@ -467,94 +472,7 @@ exports.postPayment = (req, res, next) => {
 
 
 
-// show the confirm page
-exports.getConfirmBook = (req, res, next) => {
 
-   if (req.session.email != undefined) {
-     return res.render('user/confirmbook', { user: req.session.email });
-    }
-    else {
-     return res.render('user/confirmbook', { user: "" });
-   }
- }
-// post confirm book
-
-exports.postConfirmBook = (req, res, next) => {
-
-   //console.log(req.body);
-   var connectDB = mysql.createConnection({
-      host: "localhost",
-      user: "root",
-      password: "",
-      database: "haikyu"
-   });
-   //var date = req.body.date;
-   //console.log(date)
-   data = "INSERT INTO bookstatus " +
-      " VALUES ('" + req.session.statusID + "','" + req.session.deviceID + "','" + req.session.serviceID + "','" + req.session.payID + "')";
-//,'" + date + "'
-   /*data1 = "SELECT * " +
-      " FROM  bookstatus " +
-      " WHERE email = " + mysql.escape(req.session.email);*/
-   data2 = "SELECT * " +
-      " FROM  device " +
-      " WHERE deviceID = " + mysql.escape(req.session.deviceID);
-   data3 = "SELECT * " +
-      " FROM  service " +
-      " WHERE serviceID = " + mysql.escape(req.session.serviceID);
-   data3 = "SELECT * " +
-      " FROM  payment " +
-      " WHERE payID = " + mysql.escape(req.session.payID);
-      
-   connectDB.query(data, (err, reslt) => {
-      if (err) throw err;
-      else {
-         /*connectDB.query(data1, (err1, result) => {
-            for (i in result) {
-               var a = result[i].date
-               a = a.toString()
-               result[i].date = a.slice(0, 15);
-            }*/
-            res.render('user/status' ,{ user: "", msg: [], err: ["Error"] });
-         //})
-      }
-   })
-}
-
-
-//get status
-/*exports.getStatus = (req, res, next) => {
-
-   var connectDB = mysql.createConnection({
-      host: "localhost",
-      user: "root",
-      password: "",
-      database: "haikyu"
-   });
-
-   data = "SELECT * " +
-      " FROM  bookstatus " +
-      " WHERE email = " + mysql.escape(req.session.email);
-
-
-   connectDB.query(data, (err, result) => {
-
-      if (err) throw err;
-      else {
-         for (i in result) {
-            var a = result[i].date
-            a = a.toString()
-            result[i].date = a.slice(0, 15);
-         }
-         if (result.length < 1) {
-            res.render('user/status', { user: req.session.email, msg: "", err: "You dont have any data", data: result });
-         }
-         else {
-            res.render('user/status', { user: req.session.email, msg: "", err: "", data: result });
-         }
-      }
-   })
-}*/
 
 
 //delete booking request
@@ -600,5 +518,4 @@ exports.getContact =(req,res,next)=>{
 exports.logout = (req, res, next) => {
    req.session.destroy();
    res.render('user/home', { user: "" });
-
 }
