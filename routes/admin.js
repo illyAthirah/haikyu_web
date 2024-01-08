@@ -13,6 +13,10 @@ router.route('/')
 
 router.get('/adminlogout',adminControler.adminlogout); //get request   
 
-router.get('/status',adminControler.getChangeStatus);// post change status
+//router.get('/status',adminControler.getChangeStatus);// post change status
    
+router.route('/status')
+   .get(adminControler.getChangeStatus) //get request
+   .post(adminControler.postChangeStatus); // post request
+
 module.exports = router;

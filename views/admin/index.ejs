@@ -165,41 +165,86 @@
 
         <!-- Status.ejs -->
 <h2>Status</h2>
-<div class="table-wrapper">
-  <table class="fl-table">
-    <thead>
-      <tr>
-       <!--<th>Date And Time</th>-->
-        <th>Email</th>
-        <th>Serial Number</th>
-        <th>Device Type</th>
-       <th>Method Services</th>
-       <th>Payment Via</th>
-        <th>Status</th> <!-- Add this line -->
-        <!--<th>Status</th>-->
-      </tr>
-    </thead>
-    <tbody>
-      <% data.forEach((row) => { %>
+<div class="card-body">
+  <div class="table-responsive">
+    <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
+      <% if(data.length) {  %>
+    
+      <thead class="bg-primary text-white">
         <tr>
-          <!--<td><%= row.date_and_time %></td>-->
-          <td><%= row.email %></td>
-          <td><%= row.serialnumber %></td>
-          <td><%= row.device_type %></td>
-          <td><%= row.method %></td>
-          <td><%= row.payment %></td>
-          <td>
-            <select name="RepairStatus" id="Repairstatus">
-              <option value="approve"style="background:green">Approve</option>
-              <option value="inprogress"style="background:yellow">Inprogress</option>
-              <option value="repaired"style="background:blue">Repaired</option>
-              <option value="cancel"style="background:red">Cancel</option>
-            </select> </td> <!-- Add this line -->
-          <!--<td><%= row.status %></td>-->
+          <th>No.</th>
+          <th>Email</th>
+          <th>Serial Number</th>
+          <th>Device</th>
+          <th>Method</th>
+          <th>Payment Via</th>
+          <th>Status</th>
         </tr>
-      <% }); %>
-    </tbody>
-  </table>
+      </thead>
+
+      <tbody>
+        <% for (i in data) { %>
+        <tr>
+          <th><%=i%></th>
+
+          <th><%=data[i].email%></th>
+          <th><%=data[i].serialnumber%></th>
+          <th><%=data[i].device_type%></th>
+          <th><%=data[i].method%></th>
+          <th><%=data[i].payment%></th>
+
+          <th>
+            <form action="/admin/status" method="POST">
+              <input type="hidden" name="statusID" value="<%=data[i].statusID%>">
+              <input type="hidden" name="email" value="<%=data[i].email%>">
+              <input type="hidden" name="serialnumber" value="<%=data[i].serialnumber%>">
+              <input type="hidden" name="device_type" value="<%=data[i].device_type%>">
+              <input type="hidden" name="method" value="<%=data[i].method%>">
+              <input type="hidden" name="payment" value="<%=data[i].payment%>">
+            <input type="submit" class="btn btn-success btn-ml" name="click" value="Approve">
+            <input type="submit" class="btn btn-success btn-ml" name="click" value="In Progress">
+            <input type="submit" class="btn btn-success btn-ml" name="click" value="Repaired">
+            <input type="submit" class="btn btn-danger btn-ml"  name="click" value="Cancel">
+            </form> 
+          </th>
+        </tr>
+        <% } %>
+        
+      </tbody>
+    </table>
+    <%   } else { %>
+      
+      <h3 style="color: #ff304f;" class="text-center">No Data Found</h3>
+      <thead class="bg-primary text-white">
+        <tr>
+          <th>Email</th>
+          <th>Serial Number</th>
+          <th>Device</th>
+          <th>Method</th>
+          <th>Payment Via</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        
+      </tbody>
+    </table>
+   
+    <% } %>
+   
+  </div>
+  <!-- eikhane else condition hobe -->
+
+</div>
+
+</div>
+
+</div>
+
+
+
+</div>
 </div>
 
 

@@ -71,46 +71,183 @@ exports.getChangeStatus = (req, res) => {
  };
   
  
-/*exports.postChangeStatus = (req, res, next) => {
-    pool.getConnection((err, connection) => {
-        if (err) throw err;
-
-        let statusValue = 0; // Default value, assuming 0 represents an initial status
-
-        const statusOptions = {
-            "Approve": 1,
-            "In Progress": 2,
-            "Repaired": 3,
-            "Cancel": 4
-        };
-
-        if (req.body.status && statusOptions.hasOwnProperty(req.body.status)) {
-            statusValue = statusOptions[req.body.status];
-        }
-
-        const data = "UPDATE bookstatus SET  status = ? WHERE email = ? AND serialnumber = ? AND device_type = ? AND method = ? AND payment = ?";
-        const data1 = "SELECT * FROM  bookstatus WHERE status IN (0, 1, 2, 3) ";
-
-        connection.query(data, [statusValue, req.body.email, req.body.serialnumber, req.body.device_type, req.body.method, req.body.payment], (err, result) => {
-            if (err) {
-                connection.release();
-                throw err;
-            }
-
-            connection.query(data1, (err1, result1) => {
-                connection.release(); // Release the connection to the pool
-
-                if (err1) throw err1;
-
-                for (const i in result1) {
-                    const a = result1[i].date;
-                    result1[i].date = a.toString().slice(0, 15);
-                }
-                return res.render('admin/index', { msg: "", err: "", data: result1 });
-            });
-        });
+ exports.postChangeStatus = (req, res, next) => {
+    var connectDB = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "",
+        database: "haikyu"
     });
-};*/
+   
+    var value = 0;
+    if (req.body.click === "Approve") {
+        // Approve logic
+        const value = 1;
+        const data = `UPDATE bookstatus 
+                      SET status = ${mysql.escape(value)}
+                      WHERE statusID = ${mysql.escape(req.body.statusID)}
+                      AND email = ${mysql.escape(req.body.email)}
+                        AND serialnumber = ${mysql.escape(req.body.serialnumber)}
+                        AND device_type = ${mysql.escape(req.body.device_type)}
+                        AND method = ${mysql.escape(req.body.method)}
+                        AND payment = ${mysql.escape(req.body.payment)}`;
+        
+        const data1 = `SELECT * 
+                       FROM bookstatus 
+                       WHERE status = 0`;
+
+        connectDB.query(data, (err, result) => {
+            if (err) throw err;
+            else {
+                connectDB.query(data1, (err1, result1) => {
+                    if (err1) throw err1;
+                    else {
+                        return res.render('admin/index', { msg: "", err: "", data: result1 });
+                    }
+                });
+            }
+        });
+    } else if (req.body.click === "In Progess") {
+        // progress logic
+        const value = 2;
+        const data = `UPDATE bookstatus 
+                      SET status = 2
+                      WHERE statusID = ${mysql.escape(req.body.statusID)}
+                       AND email = ${mysql.escape(req.body.email)}
+                        AND serialnumber = ${mysql.escape(req.body.serialnumber)}
+                        AND device_type = ${mysql.escape(req.body.device_type)}
+                        AND method = ${mysql.escape(req.body.method)}
+                        AND payment = ${mysql.escape(req.body.payment)}`;
+
+        const data1 = `SELECT * 
+                       FROM bookstatus 
+                       WHERE status = 0`;
+
+        connectDB.query(data, (err, result) => {
+            if (err) throw err;
+            else {
+                connectDB.query(data1, (err1, result1) => {
+                    if (err1) throw err1;
+                    else {
+                        return res.render('admin/index', { msg: "", err: "", data: result1 });
+                    }
+                });
+            }
+        });
+    }else if (req.body.click === "Repaired") {
+        // repaired logic
+        const value = 3;
+        const data = `UPDATE bookstatus 
+                      SET status = 3
+                      WHERE statusID = ${mysql.escape(req.body.statusID)}
+                       AND email = ${mysql.escape(req.body.email)}
+                        AND serialnumber = ${mysql.escape(req.body.serialnumber)}
+                        AND device_type = ${mysql.escape(req.body.device_type)}
+                        AND method = ${mysql.escape(req.body.method)}
+                        AND payment = ${mysql.escape(req.body.payment)}`;
+
+        const data1 = `SELECT * 
+                       FROM bookstatus 
+                       WHERE status = 0`;
+
+        connectDB.query(data, (err, result) => {
+            if (err) throw err;
+            else {
+                connectDB.query(data1, (err1, result1) => {
+                    if (err1) throw err1;
+                    else {
+                        return res.render('admin/index', { msg: "", err: "", data: result1 });
+                    }
+                });
+            }
+        });
+    }else if (req.body.click === "Cancel") {
+        // Cancel logic
+        const data = `UPDATE bookstatus 
+                      SET status = 4
+                      WHERE statusID = ${mysql.escape(req.body.statusID)}
+                       AND email = ${mysql.escape(req.body.email)}
+                        AND serialnumber = ${mysql.escape(req.body.serialnumber)}
+                        AND device_type = ${mysql.escape(req.body.device_type)}
+                        AND method = ${mysql.escape(req.body.method)}
+                        AND payment = ${mysql.escape(req.body.payment)}`;
+
+        const data1 = `SELECT * 
+                       FROM bookstatus 
+                       WHERE status = 0`;
+
+        connectDB.query(data, (err, result) => {
+            if (err) throw err;
+            else {
+                connectDB.query(data1, (err1, result1) => {
+                    if (err1) throw err1;
+                    else {
+                        return res.render('admin/index', { msg: "", err: "", data: result1 });
+                    }
+                });
+            }
+        });
+    }
+};
+
+/*exports.postChangeStatus = (req, res, next) => {
+    // console.log(req.body);
+
+    const connectDB = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "",
+        database: "haikyu"
+    });
+
+    let value = 0;
+
+    // Use a switch statement for better readability
+    switch (req.body.click) {
+        case "Approve":
+            value = 1;
+            break;
+        case "Repaired":
+            value = 2;
+            break;
+        case "In Progress":
+            value = 3;
+            break;
+        case "Cancel":
+            value = 4;
+            break;
+        default:
+            value = 0;
+            break;
+    }
+
+    const data = `UPDATE bookstatus 
+                  SET status = ${mysql.escape(value)}
+                  WHERE email = ${mysql.escape(req.body.mail)}
+                    AND serialnumber = ${mysql.escape(req.body.serialnumber)}
+                    AND device_type = ${mysql.escape(req.body.device_type)}
+                    AND method = ${mysql.escape(req.body.method)}
+                    AND payment = ${mysql.escape(req.body.payment)}`;
+
+    const data1 = `SELECT * 
+                   FROM bookstatus 
+                   WHERE status = 0`;
+
+    connectDB.query(data, (err, result) => {
+        if (err) throw err;
+        else {
+            connectDB.query(data1, (err1, result1) => {
+                if (err1) throw err1;
+                else {
+                   
+                    return res.render('admin/index', { msg: "", err: "", data: result1 });
+                }
+            });
+        }
+    });
+};
+*/
+
 
 // logout
 exports.adminlogout = (req, res, next) => {
