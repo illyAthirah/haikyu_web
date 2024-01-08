@@ -188,7 +188,13 @@
           <td><%= row.device_type %></td>
           <td><%= row.method %></td>
           <td><%= row.payment %></td>
-          <td><%= row.status %></td> <!-- Add this line -->
+          <td>
+            <select name="RepairStatus" id="Repairstatus">
+              <option value="approve"style="background:green">Approve</option>
+              <option value="inprogress"style="background:yellow">Inprogress</option>
+              <option value="repaired"style="background:blue">Repaired</option>
+              <option value="cancel"style="background:red">Cancel</option>
+            </select> </td> <!-- Add this line -->
           <!--<td><%= row.status %></td>-->
         </tr>
       <% }); %>
@@ -199,7 +205,7 @@
 
 
 
- <!-- Footer Start -->
+ <!-- Footer Start 
  <div class="container-fluid footer bg-dark wow fadeIn" data-wow-delay=".3s">
     <div class="container pt-5 pb-4">
         <div class="row g-5">
@@ -265,10 +271,10 @@
             <div class="col-md-6 text-center text-md-end">
                                       <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                
-        </div>
+        <!--</div>
     </div>
 </div>
-<!-- Footer End -->
+ Footer End -->
 
 
         <!-- Back to Top -->
