@@ -217,7 +217,13 @@
           <td><%= row.device_type %></td>
           <td><%= row.method %></td>
           <td><%= row.payment %></td>
-          <td><%= row.status %></td> <!-- Add this line -->
+          <td>
+            <%= row.status === 1 ? 'Repaired' : (row.status === 2 ? 'Pending' : '') %>
+        </td>
+        
+      </td>
+        
+         <!-- Add this line -->
           <!--<td><%= row.status %></td>-->
         </tr>
       <% }); %>
